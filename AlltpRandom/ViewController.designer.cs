@@ -9,65 +9,106 @@ using System.CodeDom.Compiler;
 
 namespace AlltpRandom
 {
-    [Register ("ViewController")]
-    partial class ViewController
-    {
-        [Outlet]
-        AppKit.NSButton complexityCheck { get; set; }
+	[Register ("ViewController")]
+	partial class ViewController
+	{
+		[Outlet]
+		AppKit.NSButton complexityCheck { get; set; }
 
-        [Outlet]
-        AppKit.NSPopUpButton difficultyPopUp { get; set; }
+		[Outlet]
+		AppKit.NSPopUpButton difficultyPopUp { get; set; }
 
-        [Outlet]
-        AppKit.NSPopUpButton heartBeepPopUp { get; set; }
+		[Outlet]
+		AppKit.NSTextField directoryField { get; set; }
 
-        [Outlet]
-        AppKit.NSTextView outputText { get; set; }
+		[Outlet]
+		AppKit.NSTextField fileNameField { get; set; }
 
-        [Outlet]
-        AppKit.NSButton sramTraceCheck { get; set; }
+		[Outlet]
+		AppKit.NSPopUpButton heartBeepPopUp { get; set; }
 
-        [Action ("complexityToggle:")]
-        partial void complexityToggle (Foundation.NSObject sender);
+		[Outlet]
+		AppKit.NSTextView outputText { get; set; }
 
-        [Action ("difficultyChanged:")]
-        partial void difficultyChanged (Foundation.NSObject sender);
+		[Outlet]
+		AppKit.NSTextField seedField { get; set; }
 
-        [Action ("generateRandomizedROM:")]
-        partial void generateRandomizedROM (Foundation.NSObject sender);
+		[Outlet]
+		AppKit.NSButton spoilerLogCheck { get; set; }
 
-        [Action ("heartBeepChanged:")]
-        partial void heartBeepChanged (Foundation.NSObject sender);
+		[Outlet]
+		AppKit.NSButton sramTraceCheck { get; set; }
 
-        [Action ("sramCheckToggle:")]
-        partial void sramCheckToggle (Foundation.NSObject sender);
-        
-        void ReleaseDesignerOutlets ()
-        {
-            if (outputText != null) {
-                outputText.Dispose ();
-                outputText = null;
-            }
+		[Action ("changeFolder:")]
+		partial void changeFolder (Foundation.NSObject sender);
 
-            if (difficultyPopUp != null) {
-                difficultyPopUp.Dispose ();
-                difficultyPopUp = null;
-            }
+		[Action ("complexityToggle:")]
+		partial void complexityToggle (Foundation.NSObject sender);
 
-            if (heartBeepPopUp != null) {
-                heartBeepPopUp.Dispose ();
-                heartBeepPopUp = null;
-            }
+		[Action ("difficultyChanged:")]
+		partial void difficultyChanged (Foundation.NSObject sender);
 
-            if (sramTraceCheck != null) {
-                sramTraceCheck.Dispose ();
-                sramTraceCheck = null;
-            }
+		[Action ("generateRandomizedROM:")]
+		partial void generateRandomizedROM (Foundation.NSObject sender);
 
-            if (complexityCheck != null) {
-                complexityCheck.Dispose ();
-                complexityCheck = null;
-            }
-        }
-    }
+		[Action ("getSpoiler:")]
+		partial void getSpoiler (Foundation.NSObject sender);
+
+		[Action ("heartBeepChanged:")]
+		partial void heartBeepChanged (Foundation.NSObject sender);
+
+		[Action ("spoilerLogToggle:")]
+		partial void spoilerLogToggle (Foundation.NSObject sender);
+
+		[Action ("sramCheckToggle:")]
+		partial void sramCheckToggle (Foundation.NSObject sender);
+		
+		void ReleaseDesignerOutlets ()
+		{
+			if (complexityCheck != null) {
+				complexityCheck.Dispose ();
+				complexityCheck = null;
+			}
+
+			if (difficultyPopUp != null) {
+				difficultyPopUp.Dispose ();
+				difficultyPopUp = null;
+			}
+
+			if (heartBeepPopUp != null) {
+				heartBeepPopUp.Dispose ();
+				heartBeepPopUp = null;
+			}
+
+			if (outputText != null) {
+				outputText.Dispose ();
+				outputText = null;
+			}
+
+			if (sramTraceCheck != null) {
+				sramTraceCheck.Dispose ();
+				sramTraceCheck = null;
+			}
+
+			if (seedField != null) {
+				seedField.Dispose ();
+				seedField = null;
+			}
+
+			if (fileNameField != null) {
+				fileNameField.Dispose ();
+				fileNameField = null;
+			}
+
+			if (directoryField != null) {
+				directoryField.Dispose ();
+				directoryField = null;
+			}
+
+			if (spoilerLogCheck != null) {
+				spoilerLogCheck.Dispose ();
+				spoilerLogCheck = null;
+			}
+		}
+	}
 }
