@@ -1,4 +1,6 @@
-﻿using Foundation;
+﻿using System;
+using Foundation;
+using AlttpRandomizer.Random;
 
 namespace AlttpRandomizer.Properties
 {
@@ -78,6 +80,28 @@ namespace AlttpRandomizer.Properties
         public void Save()
         {
             NSUserDefaults.StandardUserDefaults.Synchronize();
+        }
+    }
+}
+
+namespace AlltpRandom {
+    internal static class AlltpHelpers {
+        public static HeartBeepSpeed? ToHeartBeep(nint rawVal)
+        {
+            if (!Enum.IsDefined(typeof(HeartBeepSpeed), rawVal))
+            {
+                return null;
+            }
+            return (HeartBeepSpeed)Enum.ToObject(typeof(HeartBeepSpeed), rawVal);
+        }
+
+        public static RandomizerDifficulty? ToDifficulty(nint rawVal)
+        {
+            if (!Enum.IsDefined(typeof(RandomizerDifficulty), rawVal))
+            {
+                return null;
+            }
+            return (RandomizerDifficulty)Enum.ToObject(typeof(RandomizerDifficulty), rawVal);
         }
     }
 }

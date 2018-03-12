@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 using AppKit;
 using Foundation;
@@ -15,6 +16,11 @@ namespace AlltpRandom
         #region Windows wrapping
         private HeartBeepSpeed GetHeartBeepSpeed()
         {
+            var beep = AlltpHelpers.ToHeartBeep(heartBeepPopUp.SelectedTag);
+            if (beep != null)
+            {
+                return (HeartBeepSpeed)beep;
+            }
             HeartBeepSpeed retVal;
 
             if (Enum.TryParse(heartBeepPopUp.SelectedItem.Title, true, out retVal))
@@ -31,46 +37,38 @@ namespace AlltpRandom
 
             if (seedField.StringValue.ToUpper().Contains("C"))
             {
-                difficultyPopUp.SelectItem("Casual");
+                difficultyPopUp.SelectItemWithTag((int)RandomizerDifficulty.Casual);
                 seedField.StringValue = seedField.StringValue.ToUpper().Replace("C", "");
                 difficulty = RandomizerDifficulty.Casual;
             }
             else if (seedField.StringValue.ToUpper().Contains("G"))
             {
-                difficultyPopUp.SelectItem("Glitched");
+                difficultyPopUp.SelectItemWithTag((int)RandomizerDifficulty.Glitched);
                 seedField.StringValue = seedField.StringValue.ToUpper().Replace("G", "");
                 difficulty = RandomizerDifficulty.Glitched;
             }
             else if (seedField.StringValue.ToUpper().Contains("NORAND"))
             {
-                difficultyPopUp.SelectItem("No Randomization");
+                difficultyPopUp.SelectItemWithTag((int)RandomizerDifficulty.None);
                 difficulty = RandomizerDifficulty.None;
             }
             else
             {
-                switch (difficultyPopUp.SelectedItem.Title)
-                {
-                    case "Casual":
-                        difficulty = RandomizerDifficulty.Casual;
-                        break;
-                    case "Glitched":
-                        difficulty = RandomizerDifficulty.Glitched;
-                        break;
-                    default:
-                        return RandomizerDifficulty.None;
-                }
+                var tag = difficultyPopUp.SelectedItem.Tag;
+                var selected = AlltpHelpers.ToDifficulty(tag) ?? RandomizerDifficulty.None;
+                difficulty = selected;
             }
 
             return difficulty;
         }
 
-        private string filename {
-            get {
+        private string filename
+        {
+            get
+            {
                 var dir = directoryField.StringValue;
                 var fName = fileNameField.StringValue;
-                var str = new NSString(dir);
-                str = str.AppendPathComponent(new NSString(fName));
-                return str.ToString();
+                return Path.Combine(dir, fName);
             }
         }
 
@@ -85,6 +83,37 @@ namespace AlltpRandom
                 HeartBeepSpeed = GetHeartBeepSpeed(),
             };
         }
+
+        private void SetSeedBasedOnDifficulty()
+        {
+            var tag = difficultyPopUp.SelectedItem.Tag;
+            var selected = AlltpHelpers.ToDifficulty(tag);
+            switch (selected)
+            {
+                case RandomizerDifficulty.Casual:
+                    seedField.StringValue = string.Format("C{0:0000000}", (new SeedRandom()).Next(10000000));
+                    break;
+
+                case RandomizerDifficulty.Glitched:
+                    seedField.StringValue = string.Format("G{0:0000000}", (new SeedRandom()).Next(10000000));
+                    break;
+
+                case RandomizerDifficulty.None:
+                    seedField.StringValue = string.Format("NORAND");
+                    break;
+
+                default:
+                    var alert = new NSAlert
+                    {
+                        MessageText = "Select Difficulty",
+                        InformativeText = "Please select a difficulty."
+                    };
+
+                    alert.BeginSheet(this.View.Window);
+                    break;
+            }
+        }
+
         #endregion
 
         public ViewController(IntPtr handle) : base(handle)
@@ -134,14 +163,16 @@ namespace AlltpRandom
         }
 
         [Export("getSpoiler:")]
-        void GetSpoiler(Foundation.NSObject sender)
+        void GetSpoiler(NSObject sender)
         {
             var txt = seedField.StringValue;
             if (txt.Length == 0)
             {
-                var alert = new NSAlert();
-                alert.MessageText = "No Seed";
-                alert.InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to ";
+                var alert = new NSAlert
+                {
+                    MessageText = "No Seed",
+                    InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to generate a spoiler from that seed"
+                };
 
                 alert.BeginSheet(this.View.Window);
                 return;
