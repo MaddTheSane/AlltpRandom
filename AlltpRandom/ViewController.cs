@@ -2,6 +2,7 @@
 
 using AppKit;
 using Foundation;
+using AlttpRandomizer.Properties;
 
 namespace AlltpRandom
 {
@@ -15,7 +16,8 @@ namespace AlltpRandom
         {
             base.ViewDidLoad();
 
-            // Do any additional setup after loading the view.
+            sramTraceCheck.State = Settings.Default.SramTrace ? NSCellStateValue.On : NSCellStateValue.Off;
+            complexityCheck.State = Settings.Default.ShowComplexity ? NSCellStateValue.On : NSCellStateValue.Off;
         }
 
         public override NSObject RepresentedObject
