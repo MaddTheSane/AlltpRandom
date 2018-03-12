@@ -722,8 +722,10 @@
                                                 <menu key="menu" id="xaD-CV-8Pd">
                                                     <items>
                                                         <menuItem title="Casual" state="on" id="oew-QJ-JDu"/>
-                                                        <menuItem title="Glitched" id="mJD-9M-bep"/>
-                                                        <menuItem title="No Randomization" id="GoY-zC-yO8"/>
+                                                        <menuItem title="Glitched" tag="1" id="mJD-9M-bep"/>
+                                                        <menuItem title="No Randomization" tag="255" id="GoY-zC-yO8">
+                                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                                        </menuItem>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
@@ -739,11 +741,11 @@
                                                 <menu key="menu" id="hSR-Wu-eMv">
                                                     <items>
                                                         <menuItem title="Off" state="on" id="d5r-oy-LKc"/>
-                                                        <menuItem title="Normal" id="b0F-j0-1Gf"/>
-                                                        <menuItem title="Half" id="DVV-J1-xfi">
+                                                        <menuItem title="Normal" tag="32" id="b0F-j0-1Gf"/>
+                                                        <menuItem title="Half" tag="64" id="DVV-J1-xfi">
                                                             <modifierMask key="keyEquivalentModifierMask"/>
                                                         </menuItem>
-                                                        <menuItem title="Quarter" id="rDI-DX-etE"/>
+                                                        <menuItem title="Quarter" tag="128" id="rDI-DX-etE"/>
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
