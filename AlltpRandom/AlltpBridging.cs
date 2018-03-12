@@ -1,6 +1,7 @@
 ﻿using System;
 using Foundation;
 using AlttpRandomizer.Random;
+using AlltpRandom;
 
 namespace AlttpRandomizer.Properties
 {
@@ -37,44 +38,80 @@ namespace AlttpRandomizer.Properties
 
         public string OutputFile
         {
-            get => NSUserDefaults.StandardUserDefaults.StringForKey("OutputFile");
-            set => NSUserDefaults.StandardUserDefaults.SetString(value, "OutputFile");
+            get => NSUserDefaults.StandardUserDefaults.StringForKey(PreferenceNames.OutputFile);
+            set => NSUserDefaults.StandardUserDefaults.SetString(value, PreferenceNames.OutputFile);
         }
 
-        public string RandomizerDifficulty
+        public AlttpRandomizer.Random.RandomizerDifficulty RandomizerDifficulty
         {
-            get => NSUserDefaults.StandardUserDefaults.StringForKey("RandomizerDifficulty");
-            set => NSUserDefaults.StandardUserDefaults.SetString(value, "RandomizerDifficulty");
+            get
+            {
+                if (!Enum.IsDefined(typeof(RandomizerDifficulty), RandomizerDifficultyRaw))
+                {
+                    NSUserDefaults.StandardUserDefaults.RemoveObject(PreferenceNames.RandomizerDifficulty);
+                }
+                return (RandomizerDifficulty)Enum.ToObject(typeof(RandomizerDifficulty), RandomizerDifficultyRaw);
+            }
+            set
+            {
+                RandomizerDifficultyRaw = (int)value;
+            }
         }
+
+        public nint RandomizerDifficultyRaw
+        {
+            get => NSUserDefaults.StandardUserDefaults.IntForKey(PreferenceNames.RandomizerDifficulty);
+            set => NSUserDefaults.StandardUserDefaults.SetInt(value, PreferenceNames.RandomizerDifficulty);
+        }
+
 
         public bool CreateSpoilerLog
         {
-            get => NSUserDefaults.StandardUserDefaults.BoolForKey("CreateSpoilerLog");
-            set => NSUserDefaults.StandardUserDefaults.SetBool(value, "CreateSpoilerLog");
+            get => NSUserDefaults.StandardUserDefaults.BoolForKey(PreferenceNames.CreateSpoilerLog);
+            set => NSUserDefaults.StandardUserDefaults.SetBool(value, PreferenceNames.CreateSpoilerLog);
         }
 
         public bool SramTrace
         {
-            get => NSUserDefaults.StandardUserDefaults.BoolForKey("SramTrace");
-            set => NSUserDefaults.StandardUserDefaults.SetBool(value, "SramTrace");
+            get => NSUserDefaults.StandardUserDefaults.BoolForKey(PreferenceNames.SramTrace);
+            set => NSUserDefaults.StandardUserDefaults.SetBool(value, PreferenceNames.SramTrace);
         }
 
-        public string HeartBeepSpeed
+        public AlttpRandomizer.Random.HeartBeepSpeed HeartBeepSpeed
         {
-            get => NSUserDefaults.StandardUserDefaults.StringForKey("HeartBeepSpeed");
-            set => NSUserDefaults.StandardUserDefaults.SetString(value, "HeartBeepSpeed");
+            get {
+                if (!Enum.IsDefined(typeof(HeartBeepSpeed), HeartBeepSpeedRaw))
+                {
+                    NSUserDefaults.StandardUserDefaults.RemoveObject(PreferenceNames.HeartBeepSpeed);
+                }
+                return (HeartBeepSpeed)Enum.ToObject(typeof(HeartBeepSpeed), HeartBeepSpeedRaw);
+            }
+            set {
+                HeartBeepSpeedRaw = (int)value;
+            }
+        }
+
+        public nint HeartBeepSpeedRaw
+        {
+            get => NSUserDefaults.StandardUserDefaults.IntForKey(PreferenceNames.HeartBeepSpeed);
+            set => NSUserDefaults.StandardUserDefaults.SetInt(value, PreferenceNames.HeartBeepSpeed);
         }
 
         public int BulkCreateCount
         {
-            get => (int)NSUserDefaults.StandardUserDefaults.IntForKey("HeartBeepSpeed");
-            set => NSUserDefaults.StandardUserDefaults.SetInt(value, "HeartBeepSpeed");
+            get => (int)NSUserDefaults.StandardUserDefaults.IntForKey(PreferenceNames.BulkCreateCount);
+            set => NSUserDefaults.StandardUserDefaults.SetInt(value, PreferenceNames.BulkCreateCount);
         }
 
         public bool ShowComplexity
         {
-            get => NSUserDefaults.StandardUserDefaults.BoolForKey("ShowComplexity");
-            set => NSUserDefaults.StandardUserDefaults.SetBool(value, "ShowComplexity");
+            get => NSUserDefaults.StandardUserDefaults.BoolForKey(PreferenceNames.ShowComplexity);
+            set => NSUserDefaults.StandardUserDefaults.SetBool(value, PreferenceNames.ShowComplexity);
+        }
+
+        public NSUrl ParentDirectory {
+            get => NSUserDefaults.StandardUserDefaults.URLForKey(PreferenceNames.ParentDirectory);
+            set => NSUserDefaults.StandardUserDefaults.SetURL(value, PreferenceNames.ParentDirectory);
         }
 
         public void Save()
@@ -84,9 +121,11 @@ namespace AlttpRandomizer.Properties
     }
 }
 
-namespace AlltpRandom {
-    internal static class AlltpHelpers {
-        public static HeartBeepSpeed? ToHeartBeep(nint rawVal)
+namespace AlltpRandom
+{
+    static class AlltpHelpers
+    {
+        internal static HeartBeepSpeed? ToHeartBeep(nint rawVal)
         {
             if (!Enum.IsDefined(typeof(HeartBeepSpeed), rawVal))
             {
@@ -95,7 +134,7 @@ namespace AlltpRandom {
             return (HeartBeepSpeed)Enum.ToObject(typeof(HeartBeepSpeed), rawVal);
         }
 
-        public static RandomizerDifficulty? ToDifficulty(nint rawVal)
+        internal static RandomizerDifficulty? ToDifficulty(nint rawVal)
         {
             if (!Enum.IsDefined(typeof(RandomizerDifficulty), rawVal))
             {
@@ -103,5 +142,17 @@ namespace AlltpRandom {
             }
             return (RandomizerDifficulty)Enum.ToObject(typeof(RandomizerDifficulty), rawVal);
         }
+    }
+
+    static class PreferenceNames 
+    {
+        internal const string OutputFile = "OutputFile";
+        internal const string RandomizerDifficulty = "RandomizerDifficulty";
+        internal const string CreateSpoilerLog = "CreateSpoilerLog";
+        internal const string SramTrace = "sramTrace";
+        internal const string HeartBeepSpeed = "HeartBeepSpeed";
+        internal const string BulkCreateCount = "BulkCreateCount";
+        internal const string ShowComplexity = "ShowComplexity";
+        internal const string ParentDirectory = "ParentDirectory";
     }
 }

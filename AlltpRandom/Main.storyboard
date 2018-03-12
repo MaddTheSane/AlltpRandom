@@ -1066,7 +1066,6 @@
                         <outlet property="difficultyPopUp" destination="YHq-U3-K2t" id="AoA-lb-fPT"/>
                         <outlet property="directoryField" destination="w80-zf-YC6" id="iXm-zQ-7GZ"/>
                         <outlet property="fileNameField" destination="ZXO-uh-wFF" id="JdD-UX-B3V"/>
-                        <outlet property="getSpoiler" destination="xxt-5h-Ecr" id="rR0-bC-kes"/>
                         <outlet property="heartBeepPopUp" destination="b1c-rS-BSJ" id="OZe-Kc-cLi"/>
                         <outlet property="outputText" destination="9OR-c5-mdd" id="wBb-VU-y7f"/>
                         <outlet property="seedField" destination="jqv-7y-wkO" id="RDK-Q4-HYH"/>

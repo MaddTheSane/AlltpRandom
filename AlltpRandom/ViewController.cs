@@ -127,7 +127,16 @@ namespace AlltpRandom
             sramTraceCheck.State = Settings.Default.SramTrace ? NSCellStateValue.On : NSCellStateValue.Off;
             complexityCheck.State = Settings.Default.ShowComplexity ? NSCellStateValue.On : NSCellStateValue.Off;
             fileNameField.StringValue = Settings.Default.OutputFile;
+            directoryField.StringValue = Settings.Default.ParentDirectory.Path;
+            heartBeepPopUp.SelectItemWithTag(Settings.Default.HeartBeepSpeedRaw);
+            difficultyPopUp.SelectItemWithTag(Settings.Default.RandomizerDifficultyRaw);
         }
+
+        private void ClearOutput()
+        {
+            outputText.TextStorage.SetString(new NSAttributedString());
+        }
+
 
         #region IBActions
         [Export("changeFolder:")]
