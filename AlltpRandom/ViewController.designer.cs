@@ -9,21 +9,24 @@ using System.CodeDom.Compiler;
 
 namespace AlltpRandom
 {
-	[Register ("ViewController")]
-	partial class ViewController
-	{
-		[Outlet]
-		AppKit.NSTextView outputText { get; set; }
+    [Register ("ViewController")]
+    partial class ViewController
+    {
+        [Outlet]
+        AppKit.NSTextView outputText { get; set; }
 
-		[Action ("generateRandomizedROM:")]
-		partial void generateRandomizedROM (Foundation.NSObject sender);
-		
-		void ReleaseDesignerOutlets ()
-		{
-			if (outputText != null) {
-				outputText.Dispose ();
-				outputText = null;
-			}
-		}
-	}
+        [Action ("generateRandomizedROM:")]
+        void generateRandomizedROM (Foundation.NSObject sender)
+        {
+            
+        }
+        
+        void ReleaseDesignerOutlets ()
+        {
+            if (outputText != null) {
+                outputText.Dispose ();
+                outputText = null;
+            }
+        }
+    }
 }

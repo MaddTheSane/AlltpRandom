@@ -57,8 +57,14 @@ namespace AlttpRandomizer.Properties
         {
             get
             {
-                object obj = ResourceManager.GetObject("RomImage", resourceCulture);
-                return ((byte[])(obj));
+                var romImage = NSBundle.MainBundle.GetUrlForResource("alltp", "sfc");
+                var romData = NSData.FromUrl(romImage);
+                var romBytes = romData.ToArray();
+                return romBytes;
+                //romData.GetBytes()
+                //((byte[])(romData));
+                //object obj = ResourceManager.GetObject("RomImage", resourceCulture);
+                //return ((byte[])(obj));
             }
         }
     }
@@ -120,7 +126,7 @@ namespace AlttpRandomizer.Properties
         }
 
         public void Save() {
-            // do nothing
+            NSUserDefaults.StandardUserDefaults.Synchronize();
         }
     }
 }
