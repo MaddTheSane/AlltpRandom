@@ -1,0 +1,4 @@
+* text=auto
+*.cs text=crlf
+*.csproj text=crlf
+*.sln text=crlf
