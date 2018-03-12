@@ -14,7 +14,7 @@ namespace AlttpRandomizer.Properties
         {
             get
             {
-                var romImage = NSBundle.MainBundle.GetUrlForResource("alltp", "sfc");
+                var romImage = NSBundle.MainBundle.GetUrlForResource("alttp", "sfc");
                 var romData = NSData.FromUrl(romImage);
                 var romBytes = romData.ToArray();
                 return romBytes;
@@ -127,7 +127,7 @@ namespace AlltpRandom
     {
         internal static HeartBeepSpeed? ToHeartBeep(nint rawVal)
         {
-            if (!Enum.IsDefined(typeof(HeartBeepSpeed), rawVal))
+            if (!Enum.IsDefined(typeof(HeartBeepSpeed), (int)rawVal))
             {
                 return null;
             }
@@ -136,7 +136,7 @@ namespace AlltpRandom
 
         internal static RandomizerDifficulty? ToDifficulty(nint rawVal)
         {
-            if (!Enum.IsDefined(typeof(RandomizerDifficulty), rawVal))
+            if (!Enum.IsDefined(typeof(RandomizerDifficulty), (int)rawVal))
             {
                 return null;
             }

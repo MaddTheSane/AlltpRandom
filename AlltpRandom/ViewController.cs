@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
+using System.Text;
 
 using AppKit;
 using Foundation;
@@ -13,6 +15,7 @@ namespace AlltpRandom
 {
     public partial class ViewController : NSViewController
     {
+        private Thread createRomThread;
         #region Windows wrapping
         private HeartBeepSpeed GetHeartBeepSpeed()
         {
@@ -114,6 +117,95 @@ namespace AlltpRandom
             }
         }
 
+        private void CreateSpoilerLog(RandomizerDifficulty difficulty)
+        {
+            int parsedSeed;
+
+            if (!int.TryParse(seedField.StringValue, out parsedSeed))
+            {
+                //MessageBox.Show("Seed must be numeric or blank.", "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //WriteOutput("Seed must be numeric or blank.");
+            }
+            else
+            {
+                var romPlms = RomLocationsFactory.GetRomLocations(difficulty);
+                RandomizerLog log = new RandomizerLog(string.Format(romPlms.SeedFileString, parsedSeed));
+
+                seedField.StringValue = string.Format(romPlms.SeedFileString, parsedSeed);
+
+                try
+                {
+                    var randomizer = new Randomizer(parsedSeed, romPlms, log);
+
+                    WriteOutput(CreateRomThread(randomizer, new RandomizerOptions { SpoilerOnly = true, Difficulty = difficulty }));
+                }
+                catch (RandomizationException ex)
+                {
+                    WriteOutput(ex.ToString());
+                }
+            }
+        }
+
+        private int CreateRom(IRomLocations romLocations, RandomizerLog log, RandomizerOptions options, int parsedSeed)
+        {
+            var randomizer = new Randomizer(parsedSeed, romLocations, log);
+
+            CreateRomThread(randomizer, options);
+
+            return randomizer.GetComplexity();
+        }
+
+        private string CreateRomThread(Randomizer randomizer, RandomizerOptions options)
+        {
+            var retVal = "";
+
+            SetButtonsEnabled(false);
+
+            createRomThread = new Thread(() => retVal = randomizer.CreateRom(options));
+            createRomThread.Start();
+
+            while (createRomThread.IsAlive)
+            {
+                NSRunLoop.Current.RunUntil(NSDate.Now.AddSeconds(0.2));
+            }
+
+            SetButtonsEnabled(true);
+
+            return retVal;
+        }
+
+        private void WriteOutput(string text)
+        {
+            var attrStr = new NSAttributedString(text);
+            outputText.TextStorage.Append(attrStr);
+        }
+
+        private void SetButtonsEnabled(bool enabled)
+        {
+            bulkGenerateButton.Enabled = enabled;
+            //create.Enabled = enabled;
+            //bulkCreate.Enabled = enabled;
+            //randomSpoiler.Enabled = enabled;
+            //listSpoiler.Enabled = enabled;
+        }
+
+        private void WriteCasualMessage()
+        {
+            var outputText2 = new StringBuilder();
+
+            outputText2.AppendLine("Some quick hints:");
+            outputText2.AppendLine("- You can toggle between Shovel & Flute in the inventory screen with the Y button.");
+            outputText2.AppendLine("- You can use the Cape to get into Hyrule Castle Tower without the Master Sword.");
+            outputText2.AppendLine();
+
+            WriteOutput(outputText2.ToString());
+        }
+
+        private void SaveRandomizerSettings()
+        {
+            //Settings.Default
+        }
+
         #endregion
 
         public ViewController(IntPtr handle) : base(handle)
@@ -136,7 +228,6 @@ namespace AlltpRandom
         {
             outputText.TextStorage.SetString(new NSAttributedString());
         }
-
 
         #region IBActions
         [Export("changeFolder:")]
@@ -168,7 +259,77 @@ namespace AlltpRandom
                     return;
                 }
             }
-            // TODO: Generate single ROM.
+
+            if (string.IsNullOrWhiteSpace(seedField.StringValue))
+            {
+                SetSeedBasedOnDifficulty();
+            }
+
+            ClearOutput();
+
+            var options = GetOptions();
+
+            if (options.Difficulty == RandomizerDifficulty.None)
+            {
+                options.NoRandomization = true;
+                var randomizer = new Randomizer(0, new RomLocationsNoRandomization(), null);
+                randomizer.CreateRom(options);
+                WriteOutput("Non-randomized rom created.");
+
+                return;
+            }
+
+            int parsedSeed;
+
+            if (!int.TryParse(seedField.StringValue, out parsedSeed))
+            {
+                //MessageBox.Show("Seed must be numeric or blank.", "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                WriteOutput("Seed must be numeric or blank.");
+            }
+            else
+            {
+                try
+                {
+                    var romLocations = RomLocationsFactory.GetRomLocations(options.Difficulty);
+                    RandomizerLog log = null;
+
+                    if (spoilerLogCheck.State == NSCellStateValue.On)
+                    {
+                        log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+                    }
+
+                    seedField.StringValue = string.Format(romLocations.SeedFileString, parsedSeed);
+
+                    if (options.Difficulty == RandomizerDifficulty.Casual)
+                    {
+                        WriteCasualMessage();
+                    }
+
+                    int complexity = CreateRom(romLocations, log, options, parsedSeed);
+
+                    var outputString = new StringBuilder();
+
+                    outputString.AppendFormat("Done!{0}{0}{0}Seed: ", Environment.NewLine);
+                    outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
+                    if (complexityCheck.State == NSCellStateValue.On)
+                    {
+                        outputString.AppendFormat(" ({0} Difficulty - Complexity {2}){1}{1}", romLocations.DifficultyName, Environment.NewLine, complexity);
+                    }
+                    else
+                    {
+                        outputString.AppendFormat(" ({0} Difficulty){1}{1}", romLocations.DifficultyName, Environment.NewLine);
+                    }
+
+                    WriteOutput(outputString.ToString());
+                }
+                catch (RandomizationException ex)
+                {
+                    WriteOutput(ex.ToString());
+                }
+
+            }
+
+            SaveRandomizerSettings();
         }
 
         [Export("getSpoiler:")]
@@ -186,6 +347,9 @@ namespace AlltpRandom
                 alert.BeginSheet(this.View.Window);
                 return;
             }
+            ClearOutput();
+            var difficulty = GetRandomizerDifficulty();
+            CreateSpoilerLog(difficulty);
 
         }
 

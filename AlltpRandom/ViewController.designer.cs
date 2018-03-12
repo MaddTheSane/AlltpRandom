@@ -13,6 +13,15 @@ namespace AlltpRandom
 	partial class ViewController
 	{
 		[Outlet]
+		AppKit.NSButton bulkGenerateButton { get; set; }
+
+		[Outlet]
+		AppKit.NSStepper bulkStepper { get; set; }
+
+		[Outlet]
+		AppKit.NSTextField bulkTextField { get; set; }
+
+		[Outlet]
 		AppKit.NSButton complexityCheck { get; set; }
 
 		[Outlet]
@@ -25,6 +34,9 @@ namespace AlltpRandom
 		AppKit.NSTextField fileNameField { get; set; }
 
 		[Outlet]
+		AppKit.NSButton generateButton { get; set; }
+
+		[Outlet]
 		AppKit.NSPopUpButton heartBeepPopUp { get; set; }
 
 		[Outlet]
@@ -34,10 +46,16 @@ namespace AlltpRandom
 		AppKit.NSTextField seedField { get; set; }
 
 		[Outlet]
+		AppKit.NSButton spoilerButton { get; set; }
+
+		[Outlet]
 		AppKit.NSButton spoilerLogCheck { get; set; }
 
 		[Outlet]
 		AppKit.NSButton sramTraceCheck { get; set; }
+
+		[Action ("bulkChanged:")]
+		partial void bulkChanged (Foundation.NSObject sender);
 
 		[Action ("changeFolder:")]
 		partial void changeFolder (Foundation.NSObject sender);
@@ -75,6 +93,16 @@ namespace AlltpRandom
 				difficultyPopUp = null;
 			}
 
+			if (directoryField != null) {
+				directoryField.Dispose ();
+				directoryField = null;
+			}
+
+			if (fileNameField != null) {
+				fileNameField.Dispose ();
+				fileNameField = null;
+			}
+
 			if (heartBeepPopUp != null) {
 				heartBeepPopUp.Dispose ();
 				heartBeepPopUp = null;
@@ -85,29 +113,44 @@ namespace AlltpRandom
 				outputText = null;
 			}
 
-			if (sramTraceCheck != null) {
-				sramTraceCheck.Dispose ();
-				sramTraceCheck = null;
-			}
-
 			if (seedField != null) {
 				seedField.Dispose ();
 				seedField = null;
 			}
 
-			if (fileNameField != null) {
-				fileNameField.Dispose ();
-				fileNameField = null;
-			}
-
-			if (directoryField != null) {
-				directoryField.Dispose ();
-				directoryField = null;
-			}
-
 			if (spoilerLogCheck != null) {
 				spoilerLogCheck.Dispose ();
 				spoilerLogCheck = null;
+			}
+
+			if (sramTraceCheck != null) {
+				sramTraceCheck.Dispose ();
+				sramTraceCheck = null;
+			}
+
+			if (generateButton != null) {
+				generateButton.Dispose ();
+				generateButton = null;
+			}
+
+			if (bulkGenerateButton != null) {
+				bulkGenerateButton.Dispose ();
+				bulkGenerateButton = null;
+			}
+
+			if (spoilerButton != null) {
+				spoilerButton.Dispose ();
+				spoilerButton = null;
+			}
+
+			if (bulkTextField != null) {
+				bulkTextField.Dispose ();
+				bulkTextField = null;
+			}
+
+			if (bulkStepper != null) {
+				bulkStepper.Dispose ();
+				bulkStepper = null;
 			}
 		}
 	}

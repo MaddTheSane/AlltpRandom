@@ -962,16 +962,20 @@
                                                         <constraint firstAttribute="width" constant="20" id="GGB-V5-eQR"/>
                                                     </constraints>
                                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="qFH-u9-Pz7">
+                                                        <numberFormatter key="formatter" formatterBehavior="default10_4" usesGroupingSeparator="NO" groupingSize="0" minimumIntegerDigits="0" maximumIntegerDigits="42" id="dTc-SZ-TUc"/>
                                                         <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
+                                                    <connections>
+                                                        <action selector="bulkChanged:" target="XfG-lQ-9wD" id="bMj-Tw-frO"/>
+                                                    </connections>
                                                 </textField>
                                                 <stepper horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gbR-NX-HvB">
                                                     <rect key="frame" x="19" y="-2" width="19" height="27"/>
                                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="d64-zB-XZF"/>
                                                     <connections>
-                                                        <action selector="takeIntegerValueFrom:" target="f0M-F2-e81" id="xRF-QD-gya"/>
+                                                        <action selector="bulkChanged:" target="XfG-lQ-9wD" id="ESo-wk-MJA"/>
                                                     </connections>
                                                 </stepper>
                                             </subviews>
@@ -1062,13 +1066,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bulkGenerateButton" destination="O7s-Qn-RbH" id="E4x-o7-qcw"/>
+                        <outlet property="bulkStepper" destination="gbR-NX-HvB" id="TMe-zd-JLN"/>
+                        <outlet property="bulkTextField" destination="f0M-F2-e81" id="ko4-S9-tFg"/>
                         <outlet property="complexityCheck" destination="0gP-hW-QDt" id="pMt-9k-i1f"/>
                         <outlet property="difficultyPopUp" destination="YHq-U3-K2t" id="AoA-lb-fPT"/>
                         <outlet property="directoryField" destination="w80-zf-YC6" id="iXm-zQ-7GZ"/>
                         <outlet property="fileNameField" destination="ZXO-uh-wFF" id="JdD-UX-B3V"/>
+                        <outlet property="generateButton" destination="55Z-Sb-Lud" id="XSh-4x-bBp"/>
                         <outlet property="heartBeepPopUp" destination="b1c-rS-BSJ" id="OZe-Kc-cLi"/>
                         <outlet property="outputText" destination="9OR-c5-mdd" id="wBb-VU-y7f"/>
                         <outlet property="seedField" destination="jqv-7y-wkO" id="RDK-Q4-HYH"/>
+                        <outlet property="spoilerButton" destination="xxt-5h-Ecr" id="ChP-gP-AQe"/>
                         <outlet property="spoilerLogCheck" destination="oCk-2j-pwx" id="dla-b9-33C"/>
                         <outlet property="sramTraceCheck" destination="y0S-yG-G5h" id="MWg-Ih-0e0"/>
                     </connections>
