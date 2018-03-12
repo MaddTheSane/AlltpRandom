@@ -77,9 +77,28 @@
     <Compile Include="ViewController.designer.cs">
       <DependentUpon>ViewController.cs</DependentUpon>
     </Compile>
+    <Compile Include="IO\FileName.cs" />
+    <Compile Include="IO\FileStreamExtensions.cs" />
+    <Compile Include="IO\RandomizerLog.cs" />
+    <Compile Include="Random\RandomizationException.cs" />
+    <Compile Include="Random\Randomizer.cs" />
+    <Compile Include="Random\SeedRandom.cs" />
+    <Compile Include="Rom\BaseRomLocations.cs" />
+    <Compile Include="Rom\IRomLocations.cs" />
+    <Compile Include="Rom\Item.cs" />
+    <Compile Include="Rom\Location.cs" />
+    <Compile Include="Rom\RomLocationsCasual.cs" />
+    <Compile Include="Rom\RomLocationsFactory.cs" />
+    <Compile Include="Rom\RomLocationsGlitched.cs" />
+    <Compile Include="Rom\RomLocationsNoRandomization.cs" />
+    <Compile Include="AlltpBridging.cs" />
+    <Compile Include="Net\RandomizerVersion.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Main.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\alttp.sfc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Mac\Xamarin.Mac.CSharp.targets" />
 </Project>

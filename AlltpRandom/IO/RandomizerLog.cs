@@ -440,7 +440,7 @@ namespace AlttpRandomizer.IO
                     case InventoryItemType.SeventyArrowCap:
                         return "70 Arrow Cap";
                     default:
-                        throw new ArgumentException("Couldn't get item type!", "item");
+                        throw new ArgumentException("Couldn't get item type!", nameof(item));
                 }
             }
 
@@ -458,7 +458,7 @@ namespace AlttpRandomizer.IO
                     case PendantItemType.GreenPendant:
                         return "Pendant of Courage (Green)";
                     default:
-                        throw new ArgumentException("Couldn't get item type!", "item");
+                        throw new ArgumentException("Couldn't get item type!", nameof(item));
                 }
             }
 
@@ -484,11 +484,11 @@ namespace AlttpRandomizer.IO
                     case CrystalItemType.Crystal3:
                         return "Crystal 3 (Yellow/Brown)";
                     default:
-                        throw new ArgumentException("Couldn't get item type!", "item");
+                        throw new ArgumentException("Couldn't get item type!", nameof(item));
                 }
             }
 
-            throw new ArgumentException("Couldn't get item type!", "item");
+            throw new ArgumentException("Couldn't get item type!", nameof(item));
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
+using AppKit;
+//using System.Windows.Forms;
 
 namespace AlttpRandomizer.Net
 {
@@ -49,15 +50,24 @@ namespace AlttpRandomizer.Net
                     {
                         if (checkVersion < currentVersionNum)
                         {
-                            var result =
-                                MessageBox.Show(
-                                    string.Format(
+                            var alert = new NSAlert
+                            {
+                                MessageText = "Version Update",
+                                InformativeText = string.Format(
                                         "You have v{0} and the current version is v{1}. Would you like to update?",
                                         Current,
-                                        currentVersion), "Version Update", MessageBoxButtons.YesNo);
+                                        currentVersion)
+                            };
 
-                            if (result == DialogResult.Yes)
-                                Help.ShowHelp(null, updateAddress);
+                            alert.AddButton("Update");
+                            alert.AddButton("Cancel");
+
+
+                            var result = alert.RunModal();
+
+                            if (result == 1000/*NSAlertFirstButtonReturn*/) {
+                                //Help.ShowHelp(null, updateAddress);
+                            }
                         }
                     }
                 }
@@ -73,11 +83,14 @@ namespace AlttpRandomizer.Net
             if (!address.Contains("dessyreqt.github.io/alttprandomizer"))
                 return "";
 
+            /*
             var webBrowser = new WebBrowser { ScrollBarsEnabled = false, ScriptErrorsSuppressed = true };
             webBrowser.Navigate(address);
             while (webBrowser.ReadyState != WebBrowserReadyState.Complete) { Application.DoEvents(); }
 
             return webBrowser.Document?.Body?.InnerHtml;
+            */
+            return "";
         }
     }
 }
