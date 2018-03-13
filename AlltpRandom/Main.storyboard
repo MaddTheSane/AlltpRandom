@@ -839,6 +839,9 @@
                                                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                             </textFieldCell>
+                                                            <connections>
+                                                                <action selector="seedTextChanged:" target="XfG-lQ-9wD" id="Vz7-25-YM0"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -989,7 +992,7 @@
                                             </customSpacing>
                                         </stackView>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="xxt-5h-Ecr">
-                                            <rect key="frame" x="295" y="13" width="111" height="32"/>
+                                            <rect key="frame" x="14" y="79" width="83" height="32"/>
                                             <buttonCell key="cell" type="push" title="Spoiler" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="as1-5B-GV0">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1005,7 +1008,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="generateRandomizedROM:" target="XfG-lQ-9wD" id="Cxd-Id-Cxr"/>
+                                                <action selector="generateMultipleROMs:" target="XfG-lQ-9wD" id="O1f-4Y-qrI"/>
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="55Z-Sb-Lud">
@@ -1019,7 +1022,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="oCk-2j-pwx">
-                                            <rect key="frame" x="18" y="103" width="135" height="18"/>
+                                            <rect key="frame" x="18" y="50" width="135" height="18"/>
                                             <buttonCell key="cell" type="check" title="Create Spoiler Log" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="dr3-GJ-pRo">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -1030,21 +1033,20 @@
                                         </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="xxt-5h-Ecr" secondAttribute="bottom" constant="20" symbolic="YES" id="6lB-7I-3V7"/>
+                                        <constraint firstAttribute="bottom" secondItem="O7s-Qn-RbH" secondAttribute="bottom" constant="53" id="4Eo-KH-OIk"/>
                                         <constraint firstItem="239-hM-4Rv" firstAttribute="top" secondItem="uQg-gq-Sjs" secondAttribute="top" constant="20" symbolic="YES" id="79E-Tp-gkm"/>
+                                        <constraint firstItem="55Z-Sb-Lud" firstAttribute="bottom" secondItem="xxt-5h-Ecr" secondAttribute="bottom" id="ABm-HH-zL7"/>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="55Z-Sb-Lud" secondAttribute="trailing" constant="20" symbolic="YES" id="BI4-1D-SQe"/>
+                                        <constraint firstItem="xxt-5h-Ecr" firstAttribute="leading" secondItem="uQg-gq-Sjs" secondAttribute="leading" constant="20" symbolic="YES" id="BaV-jw-Yvf"/>
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="top" secondItem="239-hM-4Rv" secondAttribute="bottom" constant="20" symbolic="YES" id="Bck-l9-pV2"/>
                                         <constraint firstItem="FYy-5h-xdg" firstAttribute="leading" secondItem="O7s-Qn-RbH" secondAttribute="trailing" constant="8" symbolic="YES" id="DIb-Q8-RMy"/>
-                                        <constraint firstItem="xxt-5h-Ecr" firstAttribute="trailing" secondItem="O7s-Qn-RbH" secondAttribute="trailing" id="KHa-rk-m71"/>
                                         <constraint firstItem="oCk-2j-pwx" firstAttribute="leading" secondItem="uQg-gq-Sjs" secondAttribute="leading" constant="20" symbolic="YES" id="NGg-02-xso"/>
-                                        <constraint firstItem="xxt-5h-Ecr" firstAttribute="top" secondItem="O7s-Qn-RbH" secondAttribute="bottom" constant="12" symbolic="YES" id="Nw2-CK-e62"/>
-                                        <constraint firstItem="oCk-2j-pwx" firstAttribute="top" secondItem="239-hM-4Rv" secondAttribute="bottom" constant="8" symbolic="YES" id="Ppo-14-c10"/>
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="leading" secondItem="O7s-Qn-RbH" secondAttribute="leading" id="Qa4-M0-jkH"/>
                                         <constraint firstItem="f0M-F2-e81" firstAttribute="baseline" secondItem="O7s-Qn-RbH" secondAttribute="baseline" id="Ta1-vl-YQM"/>
                                         <constraint firstItem="O7s-Qn-RbH" firstAttribute="top" secondItem="55Z-Sb-Lud" secondAttribute="bottom" constant="12" symbolic="YES" id="ZRu-T2-G64"/>
                                         <constraint firstAttribute="trailing" secondItem="239-hM-4Rv" secondAttribute="trailing" constant="20" symbolic="YES" id="c3Q-8j-8qv"/>
                                         <constraint firstItem="239-hM-4Rv" firstAttribute="leading" secondItem="uQg-gq-Sjs" secondAttribute="leading" constant="20" symbolic="YES" id="h1g-Pa-lXf"/>
-                                        <constraint firstItem="xxt-5h-Ecr" firstAttribute="leading" secondItem="O7s-Qn-RbH" secondAttribute="leading" id="jzt-Ux-yJE"/>
+                                        <constraint firstItem="oCk-2j-pwx" firstAttribute="top" secondItem="xxt-5h-Ecr" secondAttribute="bottom" constant="20" symbolic="YES" id="q3e-yD-gxw"/>
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="trailing" secondItem="O7s-Qn-RbH" secondAttribute="trailing" id="rz1-xR-2je"/>
                                         <constraint firstAttribute="trailing" secondItem="FYy-5h-xdg" secondAttribute="trailing" constant="4" id="sOK-8Z-XQl"/>
                                         <constraint firstItem="gbR-NX-HvB" firstAttribute="centerY" secondItem="O7s-Qn-RbH" secondAttribute="centerY" id="tXT-v7-fV4"/>

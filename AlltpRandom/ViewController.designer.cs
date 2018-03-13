@@ -66,6 +66,9 @@ namespace AlltpRandom
 		[Action ("difficultyChanged:")]
 		partial void difficultyChanged (Foundation.NSObject sender);
 
+		[Action ("generateMultipleROMs:")]
+		partial void generateMultipleROMs (Foundation.NSObject sender);
+
 		[Action ("generateRandomizedROM:")]
 		partial void generateRandomizedROM (Foundation.NSObject sender);
 
@@ -75,6 +78,9 @@ namespace AlltpRandom
 		[Action ("heartBeepChanged:")]
 		partial void heartBeepChanged (Foundation.NSObject sender);
 
+		[Action ("seedTextChanged:")]
+		partial void seedTextChanged (Foundation.NSObject sender);
+
 		[Action ("spoilerLogToggle:")]
 		partial void spoilerLogToggle (Foundation.NSObject sender);
 
@@ -83,6 +89,21 @@ namespace AlltpRandom
 		
 		void ReleaseDesignerOutlets ()
 		{
+			if (bulkGenerateButton != null) {
+				bulkGenerateButton.Dispose ();
+				bulkGenerateButton = null;
+			}
+
+			if (bulkStepper != null) {
+				bulkStepper.Dispose ();
+				bulkStepper = null;
+			}
+
+			if (bulkTextField != null) {
+				bulkTextField.Dispose ();
+				bulkTextField = null;
+			}
+
 			if (complexityCheck != null) {
 				complexityCheck.Dispose ();
 				complexityCheck = null;
@@ -103,6 +124,11 @@ namespace AlltpRandom
 				fileNameField = null;
 			}
 
+			if (generateButton != null) {
+				generateButton.Dispose ();
+				generateButton = null;
+			}
+
 			if (heartBeepPopUp != null) {
 				heartBeepPopUp.Dispose ();
 				heartBeepPopUp = null;
@@ -118,6 +144,11 @@ namespace AlltpRandom
 				seedField = null;
 			}
 
+			if (spoilerButton != null) {
+				spoilerButton.Dispose ();
+				spoilerButton = null;
+			}
+
 			if (spoilerLogCheck != null) {
 				spoilerLogCheck.Dispose ();
 				spoilerLogCheck = null;
@@ -126,31 +157,6 @@ namespace AlltpRandom
 			if (sramTraceCheck != null) {
 				sramTraceCheck.Dispose ();
 				sramTraceCheck = null;
-			}
-
-			if (generateButton != null) {
-				generateButton.Dispose ();
-				generateButton = null;
-			}
-
-			if (bulkGenerateButton != null) {
-				bulkGenerateButton.Dispose ();
-				bulkGenerateButton = null;
-			}
-
-			if (spoilerButton != null) {
-				spoilerButton.Dispose ();
-				spoilerButton = null;
-			}
-
-			if (bulkTextField != null) {
-				bulkTextField.Dispose ();
-				bulkTextField = null;
-			}
-
-			if (bulkStepper != null) {
-				bulkStepper.Dispose ();
-				bulkStepper = null;
 			}
 		}
 	}
