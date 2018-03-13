@@ -685,7 +685,7 @@
                                     <rect key="frame" x="1" y="1" width="795" height="212"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textView importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" continuousSpellChecking="YES" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" quoteSubstitution="YES" dashSubstitution="YES" spellingCorrection="YES" smartInsertDelete="YES" id="9OR-c5-mdd">
+                                        <textView editable="NO" importsGraphics="NO" verticallyResizable="YES" usesFontPanel="YES" findStyle="panel" allowsUndo="YES" usesRuler="YES" allowsNonContiguousLayout="YES" id="9OR-c5-mdd">
                                             <rect key="frame" x="0.0" y="0.0" width="795" height="212"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -975,7 +975,7 @@
                                                     <rect key="frame" x="19" y="-2" width="19" height="27"/>
                                                     <stepperCell key="cell" continuous="YES" alignment="left" maxValue="100" id="d64-zB-XZF"/>
                                                     <connections>
-                                                        <action selector="bulkChanged:" target="XfG-lQ-9wD" id="ESo-wk-MJA"/>
+                                                        <action selector="takeIntegerValueFrom:" target="f0M-F2-e81" id="k63-4e-Cs3"/>
                                                     </connections>
                                                 </stepper>
                                             </subviews>

@@ -16,6 +16,7 @@ namespace AlltpRandom
     public partial class ViewController : NSViewController
     {
         private Thread createRomThread;
+
         #region Windows wrapping
         private HeartBeepSpeed GetHeartBeepSpeed()
         {
@@ -119,17 +120,15 @@ namespace AlltpRandom
 
         private void CreateSpoilerLog(RandomizerDifficulty difficulty)
         {
-            int parsedSeed;
-
-            if (!int.TryParse(seedField.StringValue, out parsedSeed))
+            if (!int.TryParse(seedField.StringValue, out int parsedSeed))
             {
                 //MessageBox.Show("Seed must be numeric or blank.", "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //WriteOutput("Seed must be numeric or blank.");
+                WriteOutput("Seed must be numeric or blank.", true);
             }
             else
             {
                 var romPlms = RomLocationsFactory.GetRomLocations(difficulty);
-                RandomizerLog log = new RandomizerLog(string.Format(romPlms.SeedFileString, parsedSeed));
+                var log = new RandomizerLog(string.Format(romPlms.SeedFileString, parsedSeed));
 
                 seedField.StringValue = string.Format(romPlms.SeedFileString, parsedSeed);
 
@@ -141,7 +140,7 @@ namespace AlltpRandom
                 }
                 catch (RandomizationException ex)
                 {
-                    WriteOutput(ex.ToString());
+                    WriteOutput(ex.ToString(), true);
                 }
             }
         }
@@ -174,19 +173,27 @@ namespace AlltpRandom
             return retVal;
         }
 
-        private void WriteOutput(string text)
+        private void WriteOutput(NSAttributedString text)
         {
-            var attrStr = new NSAttributedString(text);
-            outputText.TextStorage.Append(attrStr);
+            outputText.TextStorage.Append(text);
+            outputText.TextStorage.Append(new NSAttributedString("\n"));
+        }
+
+        private void WriteOutput(string text, bool error = false)
+        {
+            var attrStr = new NSMutableAttributedString(text);
+            if (error)
+            {
+                attrStr.AddAttribute(NSStringAttributeKey.ForegroundColor, NSColor.Red, new NSRange(0, attrStr.Length));
+            }
+            WriteOutput(attrStr);
         }
 
         private void SetButtonsEnabled(bool enabled)
         {
             bulkGenerateButton.Enabled = enabled;
-            //create.Enabled = enabled;
-            //bulkCreate.Enabled = enabled;
-            //randomSpoiler.Enabled = enabled;
-            //listSpoiler.Enabled = enabled;
+            generateButton.Enabled = enabled;
+            spoilerButton.Enabled = enabled;
         }
 
         private void WriteCasualMessage()
@@ -203,7 +210,12 @@ namespace AlltpRandom
 
         private void SaveRandomizerSettings()
         {
-            //Settings.Default
+            Settings.Default.BulkCreateCount = bulkStepper.IntValue;
+            Settings.Default.SramTrace = sramTraceCheck.State == NSCellStateValue.On;
+            Settings.Default.ShowComplexity = complexityCheck.State == NSCellStateValue.On;
+            Settings.Default.OutputFile = fileNameField.StringValue;
+            Settings.Default.HeartBeepSpeedRaw = heartBeepPopUp.SelectedTag;
+            Settings.Default.RandomizerDifficultyRaw = difficultyPopUp.SelectedTag;
         }
 
         #endregion
@@ -222,6 +234,7 @@ namespace AlltpRandom
             directoryField.StringValue = Settings.Default.ParentDirectory.Path;
             heartBeepPopUp.SelectItemWithTag(Settings.Default.HeartBeepSpeedRaw);
             difficultyPopUp.SelectItemWithTag(Settings.Default.RandomizerDifficultyRaw);
+            bulkStepper.IntValue = Settings.Default.BulkCreateCount;
         }
 
         private void ClearOutput()
@@ -233,7 +246,7 @@ namespace AlltpRandom
         [Export("changeFolder:")]
         void ChangeFolder(Foundation.NSObject sender)
         {
-
+            var panel = new NSOpenPanel();
         }
 
         [Export("complexityToggle:")]
@@ -245,91 +258,233 @@ namespace AlltpRandom
         [Export("difficultyChanged:")]
         void DifficultyChanged(Foundation.NSObject sender)
         {
-
+            var tag = difficultyPopUp.SelectedTag;
+            var difficulty = AlltpHelpers.ToDifficulty(tag) ?? RandomizerDifficulty.Casual;
+            switch (difficulty)
+            {
+                case RandomizerDifficulty.Casual:
+                    bulkGenerateButton.Enabled = true;
+                    if (seedField.StringValue.ToUpper().StartsWith("G"))
+                    {
+                        seedField.StringValue = seedField.StringValue.ToUpper().Replace('G', 'C');
+                    }
+                    else if (seedField.StringValue.ToUpper() == "NORAND")
+                    {
+                        seedField.StringValue = "";
+                    }
+                    break;
+                case RandomizerDifficulty.Glitched:
+                    bulkGenerateButton.Enabled = true;
+                    if (seedField.StringValue.ToUpper().StartsWith("C"))
+                    {
+                        seedField.StringValue = seedField.StringValue.ToUpper().Replace('C', 'G');
+                    }
+                    else if (seedField.StringValue.ToUpper() == "NORAND")
+                    {
+                        seedField.StringValue = "";
+                    }
+                    break;
+                case RandomizerDifficulty.None:
+                    seedField.StringValue = "NORAND";
+                    bulkGenerateButton.Enabled = false;
+                    break;
+            }
         }
 
         [Export("generateRandomizedROM:")]
         void GenerateRandomizedROM(Foundation.NSObject sender)
         {
-            if (sender is NSButton senderButton)
+            if (sender is NSButton senderButton && senderButton.Tag == 1)
             {
-                if (senderButton.Tag == 1)
+                NSAlert alert;
+                if (!filename.Contains("<seed>"))
                 {
-                    // TODO: Generate multiple ROMs.
-                    return;
+                    alert = new NSAlert();
+                    alert.MessageText = "Filename Error";
+                    alert.InformativeText = "Bulk create requires \"<seed>\" be in the file name.";
+                    alert.AlertStyle = NSAlertStyle.Critical;
+                    alert.BeginSheet(this.View.Window);
+                    WriteOutput("Bulk create requires \"<seed>\" be in the file name.", true);
                 }
-            }
-
-            if (string.IsNullOrWhiteSpace(seedField.StringValue))
-            {
-                SetSeedBasedOnDifficulty();
-            }
-
-            ClearOutput();
-
-            var options = GetOptions();
-
-            if (options.Difficulty == RandomizerDifficulty.None)
-            {
-                options.NoRandomization = true;
-                var randomizer = new Randomizer(0, new RomLocationsNoRandomization(), null);
-                randomizer.CreateRom(options);
-                WriteOutput("Non-randomized rom created.");
-
-                return;
-            }
-
-            int parsedSeed;
-
-            if (!int.TryParse(seedField.StringValue, out parsedSeed))
-            {
-                //MessageBox.Show("Seed must be numeric or blank.", "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                WriteOutput("Seed must be numeric or blank.");
-            }
-            else
-            {
-                try
+                else
                 {
-                    var romLocations = RomLocationsFactory.GetRomLocations(options.Difficulty);
-                    RandomizerLog log = null;
+                    ClearOutput();
 
-                    if (spoilerLogCheck.State == NSCellStateValue.On)
+                    SetSeedBasedOnDifficulty();
+
+                    var difficulty = GetRandomizerDifficulty();
+
+                    if (difficulty == RandomizerDifficulty.None)
                     {
-                        log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+                        return;
                     }
 
-                    seedField.StringValue = string.Format(romLocations.SeedFileString, parsedSeed);
-
-                    if (options.Difficulty == RandomizerDifficulty.Casual)
+                    if (difficulty == RandomizerDifficulty.Casual)
                     {
                         WriteCasualMessage();
                     }
 
-                    int complexity = CreateRom(romLocations, log, options, parsedSeed);
+                    int successCount = 0;
+                    int failCount = 0;
 
-                    var outputString = new StringBuilder();
-
-                    outputString.AppendFormat("Done!{0}{0}{0}Seed: ", Environment.NewLine);
-                    outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
-                    if (complexityCheck.State == NSCellStateValue.On)
+                    for (int seedNum = 0; seedNum < bulkStepper.IntValue; seedNum++)
                     {
-                        outputString.AppendFormat(" ({0} Difficulty - Complexity {2}){1}{1}", romLocations.DifficultyName, Environment.NewLine, complexity);
+                        int parsedSeed = new SeedRandom().Next(10000000);
+                        var romLocations = RomLocationsFactory.GetRomLocations(difficulty);
+                        RandomizerLog log = null;
+
+                        var outputString = new StringBuilder();
+                        outputString.Append("Creating Seed: ");
+                        outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
+                        outputString.AppendFormat(" ({0} Difficulty){1}", romLocations.DifficultyName, Environment.NewLine);
+                        WriteOutput(outputString.ToString());
+
+                        if (spoilerLogCheck.State == NSCellStateValue.On)
+                        {
+                            log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+                        }
+
+                        seedField.StringValue = string.Format(romLocations.SeedFileString, parsedSeed);
+
+                        try
+                        {
+
+                            int complexity = CreateRom(romLocations, log, GetOptions(), parsedSeed);
+
+                            outputString = new StringBuilder();
+                            outputString.AppendFormat("Completed Seed: ");
+                            outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
+                            if (complexityCheck.State == NSCellStateValue.On)
+                            {
+                                outputString.AppendFormat(" ({0} Difficulty - Complexity {2}){1}{1}", romLocations.DifficultyName, Environment.NewLine, complexity);
+                            }
+                            else
+                            {
+                                outputString.AppendFormat(" ({0} Difficulty){1}{1}", romLocations.DifficultyName, Environment.NewLine);
+                            }
+                            WriteOutput(outputString.ToString());
+
+                            successCount++;
+                        }
+                        catch (RandomizationException ex)
+                        {
+                            outputString = new StringBuilder();
+                            outputString.AppendFormat("FAILED Creating Seed: ");
+                            outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
+                            outputString.AppendFormat(" ({0} Difficulty) - {1}{2}{2}", romLocations.DifficultyName, ex.Message, Environment.NewLine);
+                            WriteOutput(outputString.ToString());
+
+                            failCount++;
+                            seedNum--;
+
+                            if (failCount >= 3)
+                            {
+                                WriteOutput(string.Format("Stopping bulk creation after {0} failures.{1}", failCount, Environment.NewLine), true);
+                            }
+
+                        }
+                    }
+
+                    var finishedString = new NSMutableAttributedString(string.Format("Completed! {0} successful", successCount));
+
+                    if (failCount > 0)
+                    {
+                        finishedString.Append(new NSAttributedString(", "));
+                        finishedString.Append(new NSAttributedString(string.Format("{0} failed. ", failCount), null, NSColor.Red));
                     }
                     else
                     {
-                        outputString.AppendFormat(" ({0} Difficulty){1}{1}", romLocations.DifficultyName, Environment.NewLine);
+                        finishedString.Append(new NSAttributedString("."));
                     }
 
-                    WriteOutput(outputString.ToString());
-                }
-                catch (RandomizationException ex)
-                {
-                    WriteOutput(ex.ToString());
+                    WriteOutput(finishedString);
+                    alert = new NSAlert();
+                    alert.MessageText = "Bulk Creation Complete";
+                    alert.InformativeText = finishedString.ToString();
+                    alert.BeginSheet(this.View.Window);
                 }
 
+                SaveRandomizerSettings();
+                return;
             }
+            else
+            {
 
-            SaveRandomizerSettings();
+                if (string.IsNullOrWhiteSpace(seedField.StringValue))
+                {
+                    SetSeedBasedOnDifficulty();
+                }
+
+                ClearOutput();
+
+                var options = GetOptions();
+
+                if (options.Difficulty == RandomizerDifficulty.None)
+                {
+                    options.NoRandomization = true;
+                    var randomizer = new Randomizer(0, new RomLocationsNoRandomization(), null);
+                    randomizer.CreateRom(options);
+                    WriteOutput("Non-randomized rom created.");
+
+                    return;
+                }
+
+
+                if (!int.TryParse(seedField.StringValue, out int parsedSeed))
+                {
+                    var alert = new NSAlert();
+                    alert.MessageText = "Seed Error";
+                    alert.InformativeText = "Seed must be numeric or blank.";
+                    alert.AlertStyle = NSAlertStyle.Critical;
+
+                    alert.BeginSheet(this.View.Window);
+
+                    WriteOutput("Seed must be numeric or blank.", true);
+                }
+                else
+                {
+                    try
+                    {
+                        var romLocations = RomLocationsFactory.GetRomLocations(options.Difficulty);
+                        RandomizerLog log = null;
+
+                        if (spoilerLogCheck.State == NSCellStateValue.On)
+                        {
+                            log = new RandomizerLog(string.Format(romLocations.SeedFileString, parsedSeed));
+                        }
+
+                        seedField.StringValue = string.Format(romLocations.SeedFileString, parsedSeed);
+
+                        if (options.Difficulty == RandomizerDifficulty.Casual)
+                        {
+                            WriteCasualMessage();
+                        }
+
+                        var complexity = CreateRom(romLocations, log, options, parsedSeed);
+
+                        var outputString = new StringBuilder();
+
+                        outputString.AppendFormat("Done!{0}{0}{0}Seed: ", Environment.NewLine);
+                        outputString.AppendFormat(romLocations.SeedFileString, parsedSeed);
+                        if (complexityCheck.State == NSCellStateValue.On)
+                        {
+                            outputString.AppendFormat(" ({0} Difficulty - Complexity {2}){1}{1}", romLocations.DifficultyName, Environment.NewLine, complexity);
+                        }
+                        else
+                        {
+                            outputString.AppendFormat(" ({0} Difficulty){1}{1}", romLocations.DifficultyName, Environment.NewLine);
+                        }
+
+                        WriteOutput(outputString.ToString());
+                    }
+                    catch (RandomizationException ex)
+                    {
+                        WriteOutput(ex.ToString(), true);
+                    }
+                }
+
+                SaveRandomizerSettings();
+            }
         }
 
         [Export("getSpoiler:")]
@@ -341,7 +496,7 @@ namespace AlltpRandom
                 var alert = new NSAlert
                 {
                     MessageText = "No Seed",
-                    InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to generate a spoiler from that seed"
+                    InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to generate a spoiler for that seed."
                 };
 
                 alert.BeginSheet(this.View.Window);
