@@ -175,8 +175,12 @@ namespace AlltpRandom
 
         private void WriteOutput(NSAttributedString text)
         {
-            outputText.TextStorage.Append(text);
-            outputText.TextStorage.Append(new NSAttributedString("\n"));
+            NSOperationQueue.MainQueue.AddOperation(() => { 
+                outputText.TextStorage.BeginEditing();
+                outputText.TextStorage.Append(text);
+                outputText.TextStorage.Append(new NSAttributedString("\n"));
+                outputText.TextStorage.EndEditing();
+            });
         }
 
         private void WriteOutput(string text, bool error = false)
@@ -216,6 +220,7 @@ namespace AlltpRandom
             Settings.Default.OutputFile = fileNameField.StringValue;
             Settings.Default.HeartBeepSpeedRaw = heartBeepPopUp.SelectedTag;
             Settings.Default.RandomizerDifficultyRaw = difficultyPopUp.SelectedTag;
+            var dirStr = directoryField.StringValue;
         }
 
         #endregion
