@@ -58,7 +58,7 @@ namespace AlltpRandom
             }
             else
             {
-                var tag = difficultyPopUp.SelectedItem.Tag;
+                var tag = difficultyPopUp.SelectedTag;
                 var selected = AlltpHelpers.ToDifficulty(tag) ?? RandomizerDifficulty.None;
                 difficulty = selected;
             }
@@ -90,7 +90,7 @@ namespace AlltpRandom
 
         private void SetSeedBasedOnDifficulty()
         {
-            var tag = difficultyPopUp.SelectedItem.Tag;
+            var tag = difficultyPopUp.SelectedTag;
             var selected = AlltpHelpers.ToDifficulty(tag);
             switch (selected)
             {
@@ -253,6 +253,7 @@ namespace AlltpRandom
             heartBeepPopUp.SelectItemWithTag(Settings.Default.HeartBeepSpeedRaw);
             difficultyPopUp.SelectItemWithTag(Settings.Default.RandomizerDifficultyRaw);
             bulkStepper.IntValue = Settings.Default.BulkCreateCount;
+            bulkTextField.IntValue = Settings.Default.BulkCreateCount;
         }
 
         private void ClearOutput()
@@ -567,6 +568,13 @@ namespace AlltpRandom
         {
 
         }
+
+        [Export("bulkChanged:")]
+        void BulkChanged(Foundation.NSObject sender)
+        {
+            
+        }
+
         #endregion
 
         public override NSObject RepresentedObject

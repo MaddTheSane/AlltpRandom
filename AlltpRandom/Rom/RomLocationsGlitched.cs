@@ -26,7 +26,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE96E,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -36,7 +36,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE971,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -46,7 +46,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE974,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -56,7 +56,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE977,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -69,7 +69,7 @@ namespace AlttpRandomizer.Rom
                         have.Contains(InventoryItemType.PegasusBoots)
                         && (have.Contains(InventoryItemType.TitansMitt)
                             || (CanAccessDarkWorld(have)
-                                && have.Contains(InventoryItemType.MagicMirror))),
+                                && have.Contains(InventoryItemType.MagicMirror)))
                 },
                 new Location
                 {
@@ -80,7 +80,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -98,7 +98,7 @@ namespace AlttpRandomizer.Rom
                             && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                 || CanLightTorches(have)))
                         || (CanEnterMiseryMire(have)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -118,7 +118,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanEnterMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -128,7 +128,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE98C,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -139,7 +139,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -149,7 +149,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE992,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -161,7 +161,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterIcePalace(have)
                         && (have.Contains(InventoryItemType.FireRod)
-                            || have.Contains(InventoryItemType.Bombos)),
+                            || have.Contains(InventoryItemType.Bombos))
                 },
                 new Location
                 {
@@ -172,7 +172,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -182,7 +182,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE99B,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -192,7 +192,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE99E,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -202,7 +202,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9A1,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -214,7 +214,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterIcePalace(have)
                         && have.Contains(InventoryItemType.Hammer)
-                        && CanLiftLightRocks(have),
+                        && CanLiftLightRocks(have)
                 },
 
                 new Location
@@ -228,7 +228,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterIcePalace(have)
                         && have.Contains(InventoryItemType.Hammer)
-                        && CanLiftLightRocks(have),
+                        && CanLiftLightRocks(have)
                 },
                 new Location
                 {
@@ -238,7 +238,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9AD,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
 
                 new Location
@@ -249,7 +249,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9B3,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -259,7 +259,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9B6,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -269,7 +269,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9B9,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -280,7 +280,7 @@ namespace AlttpRandomizer.Rom
                     ForceItems = { InventoryItemType.PegasusBoots },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -290,7 +290,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9BF,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -300,7 +300,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9C2,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -311,7 +311,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.MagicMirror)
-                        && have.Contains(InventoryItemType.Hammer),
+                        && have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -322,7 +322,7 @@ namespace AlttpRandomizer.Rom
                     ForceItems = { InventoryItemType.Key },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -332,7 +332,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9CB,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -342,7 +342,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9CE,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
 
                 new Location
@@ -352,8 +352,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D5-B1] Ice Palace - compass room",
                     Address = 0xE9D4,
                     CanAccess =
-                        have =>
-                        CanEnterIcePalace(have),
+                        CanEnterIcePalace
                 },
 
                 new Location
@@ -365,7 +364,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanEnterMiseryMire(have)
-                        && CanAccessDarkWorld(have),
+                        && CanAccessDarkWorld(have)
                 },
                 new Location
                 {
@@ -377,7 +376,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterIcePalace(have)
                         && have.Contains(InventoryItemType.Hammer)
-                        && CanLiftLightRocks(have),
+                        && CanLiftLightRocks(have)
                 },
                 new Location
                 {
@@ -386,8 +385,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D5-B3] Ice Palace - spike room",
                     Address = 0xE9E0,
                     CanAccess =
-                        have =>
-                        CanEnterIcePalace(have),
+                        CanEnterIcePalace
                 },
                 new Location
                 {
@@ -396,8 +394,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D5-B5] Ice Palace - b5 up staircase",
                     Address = 0xE9E3,
                     CanAccess =
-                        have =>
-                        CanEnterIcePalace(have),
+                        CanEnterIcePalace
                 },
                 new Location
                 {
@@ -406,8 +403,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-L3-1F] Tower of Hera - first floor",
                     Address = 0xE9E6,
                     CanAccess =
-                        have =>
-                        CanLightTorches(have),
+                        CanLightTorches
                 },
                 new Location
                 {
@@ -417,7 +413,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9E9,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -426,8 +422,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-063] doorless hut",
                     Address = 0xE9EC,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -436,8 +431,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-062] C-shaped house",
                     Address = 0xE9EF,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -447,7 +441,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9F2,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -457,7 +451,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9F5,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -467,8 +461,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9F8,
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
-                        have =>
-                        CanDefeatTowerOfHera(have),
+                        CanDefeatTowerOfHera
                 },
                 new Location
                 {
@@ -478,8 +471,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9FB,
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
-                        have =>
-                        CanDefeatTowerOfHera(have),
+                        CanDefeatTowerOfHera
                 },
                 new Location
                 {
@@ -489,7 +481,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xE9FE,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.FireRod),
+                        have.Contains(InventoryItemType.FireRod)
                 },
                 new Location
                 {
@@ -498,8 +490,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D4-B1] Thieves' Town - Bottom left of huge room [top left chest]",
                     Address = 0xEA01,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -508,8 +499,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D4-B1] Thieves' Town - Bottom left of huge room [bottom right chest]",
                     Address = 0xEA04,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -518,8 +508,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D4-B1] Thieves' Town - Bottom right of huge room",
                     Address = 0xEA07,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -528,8 +517,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[dungeon-D4-B1] Thieves' Town - Top left of huge room",
                     Address = 0xEA0A,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -539,8 +527,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA0D,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -552,7 +539,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanAccessDarkWorld(have)
-                        && have.Contains(InventoryItemType.Hammer),
+                        && have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -562,8 +549,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA13,
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -573,7 +559,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA16,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -584,7 +570,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -595,7 +581,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                        && have.Contains(InventoryItemType.FireRod),
+                        && have.Contains(InventoryItemType.FireRod)
                 },
                 new Location
                 {
@@ -606,7 +592,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                        && have.Contains(InventoryItemType.FireRod),
+                        && have.Contains(InventoryItemType.FireRod)
                 },
                 new Location
                 {
@@ -616,7 +602,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA22,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.CaneOfSomaria),
+                        have.Contains(InventoryItemType.CaneOfSomaria)
                 },
                 new Location
                 {
@@ -626,7 +612,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA25,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -640,7 +626,7 @@ namespace AlttpRandomizer.Rom
                         (!TurtleRockBigKeyOnLaserBridge()
                             && have.Contains(InventoryItemType.CaneOfSomaria))
                         || (have.Contains(InventoryItemType.MagicMirror)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -654,7 +640,7 @@ namespace AlttpRandomizer.Rom
                         (!TurtleRockBigKeyOnLaserBridge()
                             && have.Contains(InventoryItemType.CaneOfSomaria))
                         || (have.Contains(InventoryItemType.MagicMirror)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -668,7 +654,7 @@ namespace AlttpRandomizer.Rom
                         (!TurtleRockBigKeyOnLaserBridge()
                             && have.Contains(InventoryItemType.CaneOfSomaria))
                         || (have.Contains(InventoryItemType.MagicMirror)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -682,7 +668,7 @@ namespace AlttpRandomizer.Rom
                         (!TurtleRockBigKeyOnLaserBridge()
                             && have.Contains(InventoryItemType.CaneOfSomaria))
                         || (have.Contains(InventoryItemType.MagicMirror)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -695,7 +681,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         !TurtleRockBigKeyOnLaserBridge()
                         || (have.Contains(InventoryItemType.MagicMirror)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -706,7 +692,7 @@ namespace AlttpRandomizer.Rom
                     ForceItems = { InventoryItemType.Key },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -716,7 +702,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA3A,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -726,7 +712,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA3D,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -737,7 +723,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -747,7 +733,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA43,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -757,7 +743,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA46,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -767,7 +753,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA49,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -777,7 +763,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA4C,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -787,7 +773,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA4F,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -797,7 +783,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA52,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -808,7 +794,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.Key },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -819,7 +805,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.Key },
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -829,7 +815,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA5B,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -840,7 +826,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanEnterMiseryMire(have)
-                        && CanAccessDarkWorld(have),
+                        && CanAccessDarkWorld(have)
                 },
                 new Location
                 {
@@ -851,7 +837,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanEnterMiseryMire(have)
-                        && CanAccessDarkWorld(have),
+                        && CanAccessDarkWorld(have)
                 },
                 new Location
                 {
@@ -863,7 +849,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterMiseryMire(have)
                         && CanAccessDarkWorld(have)
-                        && CanLightTorches(have),
+                        && CanLightTorches(have)
                 },
                 new Location
                 {
@@ -875,7 +861,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanEnterMiseryMire(have)
-                        && CanAccessDarkWorld(have),
+                        && CanAccessDarkWorld(have)
                 },
                 new Location
                 {
@@ -886,7 +872,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanEnterMiseryMire(have)
-                        && CanAccessDarkWorld(have),
+                        && CanAccessDarkWorld(have)
                 },
                 new Location
                 {
@@ -898,7 +884,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         CanEnterMiseryMire(have)
                         && CanAccessDarkWorld(have)
-                        && CanLightTorches(have),
+                        && CanLightTorches(have)
                 },
 
                 new Location
@@ -908,8 +894,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-071] Misery Mire west area [left chest]",
                     Address = 0xEA73,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                },
                 new Location
                 {
@@ -918,8 +903,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-071] Misery Mire west area [right chest]",
                     Address = 0xEA76,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -929,7 +913,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA79,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -939,7 +923,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA7C,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -949,7 +933,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA7F,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -959,7 +943,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA82,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -969,7 +953,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA85,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -979,7 +963,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA88,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1001,7 +985,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA8E,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1011,7 +995,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA91,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1021,7 +1005,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA94,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1031,7 +1015,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA97,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1041,7 +1025,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEA9A,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1059,7 +1043,7 @@ namespace AlttpRandomizer.Rom
                             && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                 || CanLightTorches(have)))
                         || (CanEnterMiseryMire(have)
-                            && CanAccessDarkWorld(have)),
+                            && CanAccessDarkWorld(have))
                 },
                 new Location
                 {
@@ -1078,7 +1062,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanEnterMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1097,7 +1081,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanEnterMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1116,7 +1100,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanEnterMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1136,7 +1120,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanOpenMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1156,7 +1140,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanOpenMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1176,7 +1160,7 @@ namespace AlttpRandomizer.Rom
                                 && (!LocationHasItem("[dungeon-L3-1F] Tower of Hera - first floor", InventoryItemType.BigKey)
                                     || CanLightTorches(have)))
                             || (CanOpenMiseryMire(have)
-                                && CanAccessDarkWorld(have))),
+                                && CanAccessDarkWorld(have)))
                 },
                 new Location
                 {
@@ -1187,7 +1171,7 @@ namespace AlttpRandomizer.Rom
                     Item = new InventoryItem(InventoryItemType.Key),
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1198,7 +1182,7 @@ namespace AlttpRandomizer.Rom
                     Item = new InventoryItem(InventoryItemType.Key),
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1208,7 +1192,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAB8,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1218,7 +1202,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEABB,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1228,7 +1212,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEABE,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1238,7 +1222,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAC1,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1248,7 +1232,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAC4,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1258,7 +1242,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAC7,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1268,7 +1252,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEACA,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1278,7 +1262,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEACD,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1289,7 +1273,7 @@ namespace AlttpRandomizer.Rom
                     NeverItems = { InventoryItemType.BigKey },
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1299,7 +1283,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAD3,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Hammer),
+                        have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -1312,7 +1296,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Hammer)
                         || (have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have)),
+                            && CanLightTorches(have))
                 },
                 new Location
                 {
@@ -1322,7 +1306,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAD9,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1332,7 +1316,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEADC,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1344,7 +1328,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Hammer)
                         || (have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have)),
+                            && CanLightTorches(have))
                 },
                 new Location
                 {
@@ -1354,7 +1338,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEAE2,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.CaneOfSomaria),
+                        have.Contains(InventoryItemType.CaneOfSomaria)
                 },
                 new Location
                 {
@@ -1365,7 +1349,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have),
+                            && CanLightTorches(have)
                 },
                 new Location
                 {
@@ -1376,7 +1360,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have),
+                            && CanLightTorches(have)
                 },
                 new Location
                 {
@@ -1387,7 +1371,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have),
+                            && CanLightTorches(have)
                 },
                 new Location
                 {
@@ -1398,7 +1382,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have),
+                            && CanLightTorches(have)
                 },
                 new Location
                 {
@@ -1410,7 +1394,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Hammer)
                         || (have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have)),
+                            && CanLightTorches(have))
                 },
                 new Location
                 {
@@ -1422,7 +1406,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Hammer)
                         || (have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have)),
+                            && CanLightTorches(have))
                 },
                 new Location
                 {
@@ -1434,7 +1418,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Hammer)
                         || (have.Contains(InventoryItemType.CaneOfSomaria)
-                            && CanLightTorches(have)),
+                            && CanLightTorches(have))
                 },
 
                 new Location
@@ -1451,7 +1435,7 @@ namespace AlttpRandomizer.Rom
                         && ((BigKeyGanonsTowerLeft()
                                 && have.Contains(InventoryItemType.Hammer))
                             || (BigKeyGanonsTowerRight()
-                                && have.Contains(InventoryItemType.CaneOfSomaria))),
+                                && have.Contains(InventoryItemType.CaneOfSomaria)))
                 },
                 new Location
                 {
@@ -1467,7 +1451,7 @@ namespace AlttpRandomizer.Rom
                         && ((BigKeyGanonsTowerLeft()
                                 && have.Contains(InventoryItemType.Hammer))
                             || (BigKeyGanonsTowerRight()
-                                && have.Contains(InventoryItemType.CaneOfSomaria))),
+                                && have.Contains(InventoryItemType.CaneOfSomaria)))
                 },
                 new Location
                 {
@@ -1483,7 +1467,7 @@ namespace AlttpRandomizer.Rom
                         && ((BigKeyGanonsTowerLeft()
                                 && have.Contains(InventoryItemType.Hammer))
                             || (BigKeyGanonsTowerRight()
-                                && have.Contains(InventoryItemType.CaneOfSomaria))),
+                                && have.Contains(InventoryItemType.CaneOfSomaria)))
                 },
                 new Location
                 {
@@ -1500,7 +1484,7 @@ namespace AlttpRandomizer.Rom
                         && ((BigKeyGanonsTowerLeft()
                                 && have.Contains(InventoryItemType.Hammer))
                             || (BigKeyGanonsTowerRight()
-                                && have.Contains(InventoryItemType.CaneOfSomaria))),
+                                && have.Contains(InventoryItemType.CaneOfSomaria)))
                 },
                 new Location
                 {
@@ -1510,7 +1494,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB09,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1520,7 +1504,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB0C,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1530,7 +1514,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB0F,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1540,7 +1524,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB12,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1550,7 +1534,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB15,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1560,7 +1544,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB18,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1570,7 +1554,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB1B,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1579,8 +1563,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-073] cave northeast of swamp palace [top chest]",
                     Address = 0xEB1E,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1589,8 +1572,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-073] cave northeast of swamp palace [top middle chest]",
                     Address = 0xEB21,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1599,8 +1581,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-073] cave northeast of swamp palace [bottom middle chest]",
                     Address = 0xEB24,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1609,8 +1590,7 @@ namespace AlttpRandomizer.Rom
                     Name = "[cave-073] cave northeast of swamp palace [bottom chest]",
                     Address = 0xEB27,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1620,7 +1600,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB2A,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1630,7 +1610,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB2D,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1640,7 +1620,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB30,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1650,7 +1630,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB33,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1660,7 +1640,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB36,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1670,7 +1650,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB39,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1680,7 +1660,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB3C,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1690,7 +1670,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB3F,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.PegasusBoots),
+                        have.Contains(InventoryItemType.PegasusBoots)
                 },
                 new Location
                 {
@@ -1700,7 +1680,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB42,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1710,7 +1690,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB45,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1720,7 +1700,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB48,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1730,7 +1710,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB4B,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1740,7 +1720,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB4E,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1753,7 +1733,7 @@ namespace AlttpRandomizer.Rom
                         CanAccessDarkWorld(have)
                         && (CanLiftLightRocks(have)
                             || have.Contains(InventoryItemType.MagicMirror))
-                        && have.Contains(InventoryItemType.Hookshot),
+                        && have.Contains(InventoryItemType.Hookshot)
                 },
                 new Location
                 {
@@ -1766,7 +1746,7 @@ namespace AlttpRandomizer.Rom
                         CanAccessDarkWorld(have)
                         && (CanLiftLightRocks(have)
                             || have.Contains(InventoryItemType.MagicMirror))
-                        && have.Contains(InventoryItemType.Hookshot),
+                        && have.Contains(InventoryItemType.Hookshot)
                 },
                 new Location
                 {
@@ -1779,7 +1759,7 @@ namespace AlttpRandomizer.Rom
                         CanAccessDarkWorld(have)
                         && (CanLiftLightRocks(have)
                             || have.Contains(InventoryItemType.MagicMirror))
-                        && have.Contains(InventoryItemType.Hookshot),
+                        && have.Contains(InventoryItemType.Hookshot)
                 },
                 new Location
                 {
@@ -1803,7 +1783,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB5D,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1813,7 +1793,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB60,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1823,7 +1803,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xEB63,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1832,8 +1812,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Piece of Heart (Treasure Chest Game)",
                     Address = 0xEDA8,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1855,7 +1834,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         (PendantAtLocation("Pendant - Eastern Palace", PendantItemType.GreenPendant) && CanDefeatEasternPalace(have))
                         || (PendantAtLocation("Pendant - Desert Palace", PendantItemType.GreenPendant) && CanDefeatDesertPalace(have))
-                        || (PendantAtLocation("Pendant - Tower of Hera", PendantItemType.GreenPendant) && CanDefeatTowerOfHera(have)),
+                        || (PendantAtLocation("Pendant - Tower of Hera", PendantItemType.GreenPendant) && CanDefeatTowerOfHera(have))
                 },
                 new Location
                 {
@@ -1864,8 +1843,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Flute Boy",
                     Address = 0x330C7,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -1874,8 +1852,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Sick Kid",
                     Address = 0x339CF,
                     CanAccess =
-                        have =>
-                        HasBottle(have),
+                        HasBottle
                 },
                 new Location
                 {
@@ -1888,7 +1865,7 @@ namespace AlttpRandomizer.Rom
                         have.Contains(InventoryItemType.MagicMirror)
                         && (have.Contains(InventoryItemType.Bottle)
                             || (have.Contains(InventoryItemType.MoonPearl)
-                                && have.Contains(InventoryItemType.TitansMitt))),
+                                && have.Contains(InventoryItemType.TitansMitt)))
                 },
                 new Location
                 {
@@ -1898,7 +1875,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x33E7D,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1907,8 +1884,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Catfish",
                     Address = 0xEE185,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld,
                     WriteItemCheck =
                         (rom, item) =>
                         {
@@ -1942,7 +1918,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0xF69FA,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1952,7 +1928,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180000,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1962,7 +1938,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180001,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.PegasusBoots),
+                        have.Contains(InventoryItemType.PegasusBoots)
                 },
                 new Location
                 {
@@ -1972,7 +1948,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180002,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1982,7 +1958,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180003,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -1992,7 +1968,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180004,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2001,8 +1977,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Piece of Heart (Desert - northeast corner)",
                     Address = 0x180005,
                     CanAccess =
-                        have =>
-                        CanLiftLightRocks(have),
+                        CanLiftLightRocks
                 },
                 new Location
                 {
@@ -2013,7 +1988,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanAccessDarkWorld(have)
-                        && have.Contains(InventoryItemType.Hammer),
+                        && have.Contains(InventoryItemType.Hammer)
                 },
                 new Location
                 {
@@ -2023,7 +1998,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180010,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2034,7 +2009,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         CanAccessDarkWorld(have)
-                        || have.Contains(InventoryItemType.MagicMirror),
+                        || have.Contains(InventoryItemType.MagicMirror)
                 },
                 new Location
                 {
@@ -2044,7 +2019,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180012,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.PegasusBoots),
+                        have.Contains(InventoryItemType.PegasusBoots)
                 },
                 new Location
                 {
@@ -2054,7 +2029,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180013,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2064,7 +2039,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180014,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Mushroom),
+                        have.Contains(InventoryItemType.Mushroom)
                 },
                 new Location
                 {
@@ -2076,7 +2051,7 @@ namespace AlttpRandomizer.Rom
                         && (have.Contains(InventoryItemType.Hammer)
                             || (have.Contains(InventoryItemType.TitansMitt)
                                 && have.Contains(InventoryItemType.MagicMirror)
-                                && have.Contains(InventoryItemType.MoonPearl))),
+                                && have.Contains(InventoryItemType.MoonPearl)))
                 },
                 new Location
                 {
@@ -2120,7 +2095,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180140,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2131,7 +2106,7 @@ namespace AlttpRandomizer.Rom
                     CanAccess =
                         have =>
                         have.Contains(InventoryItemType.Flippers)
-                        || have.Contains(InventoryItemType.MagicMirror),
+                        || have.Contains(InventoryItemType.MagicMirror)
                 },
                 new Location
                 {
@@ -2141,7 +2116,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180142,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2151,7 +2126,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180143,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2161,7 +2136,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180144,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2171,7 +2146,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180145,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2181,7 +2156,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180146,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2191,7 +2166,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180147,
                     CanAccess =
                         have =>
-                        true,
+                        true
                 },
                 new Location
                 {
@@ -2200,8 +2175,7 @@ namespace AlttpRandomizer.Rom
                     Name = "Piece of Heart (Digging Game)",
                     Address = 0x180148,
                     CanAccess =
-                        have =>
-                        CanAccessDarkWorld(have),
+                        CanAccessDarkWorld
                 },
                 new Location
                 {
@@ -2213,7 +2187,7 @@ namespace AlttpRandomizer.Rom
                         have =>
                         have.Contains(InventoryItemType.Flippers)
                         || (have.Contains(InventoryItemType.PegasusBoots)
-                            && have.Contains(InventoryItemType.MoonPearl)),
+                            && have.Contains(InventoryItemType.MoonPearl))
                 },
                 new Location
                 {
@@ -2223,7 +2197,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x18014A,
                     CanAccess =
                         have =>
-                        have.Contains(InventoryItemType.Shovel),
+                        have.Contains(InventoryItemType.Shovel)
                 },
                 new Location
                 {
@@ -2233,8 +2207,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180150,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatEasternPalace(have),
+                        CanDefeatEasternPalace
                 },
                 new Location
                 {
@@ -2244,8 +2217,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180151,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatDesertPalace(have),
+                        CanDefeatDesertPalace
                 },
                 new Location
                 {
@@ -2255,8 +2227,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180152,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatTowerOfHera(have),
+                        CanDefeatTowerOfHera
                 },
                 new Location
                 {
@@ -2266,8 +2237,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180153,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatDarkPalace(have),
+                        CanDefeatDarkPalace
                 },
                 new Location
                 {
@@ -2277,8 +2247,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180154,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatSwampPalace(have),
+                        CanDefeatSwampPalace
                 },
                 new Location
                 {
@@ -2288,8 +2257,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180155,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatSkullWoods(have),
+                        CanDefeatSkullWoods
                 },
                 new Location
                 {
@@ -2299,8 +2267,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180156,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatThievesTown(have),
+                        CanDefeatThievesTown
                 },
                 new Location
                 {
@@ -2310,8 +2277,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180157,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatIcePalace(have),
+                        CanDefeatIcePalace
                 },
                 new Location
                 {
@@ -2321,8 +2287,7 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180158,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatMiseryMire(have),
+                        CanDefeatMiseryMire
                 },
                 new Location
                 {
@@ -2332,9 +2297,8 @@ namespace AlttpRandomizer.Rom
                     Address = 0x180159,
                     NeverItems = { InventoryItemType.BigKey, InventoryItemType.Key },
                     CanAccess =
-                        have =>
-                        CanDefeatTurtleRock(have),
-                },
+                        CanDefeatTurtleRock
+                }
             };
 
             SpecialLocations = new List<Location>
@@ -2350,8 +2314,7 @@ namespace AlttpRandomizer.Rom
                             WritePendant(rom, Region.EasternPalace, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatEasternPalace(have),
+                        CanDefeatEasternPalace
                 },
                 new Location
                 {
@@ -2364,8 +2327,7 @@ namespace AlttpRandomizer.Rom
                             WritePendant(rom, Region.DesertPalace, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatDesertPalace(have),
+                        CanDefeatDesertPalace
                 },
                 new Location
                 {
@@ -2378,8 +2340,7 @@ namespace AlttpRandomizer.Rom
                             WritePendant(rom, Region.TowerOfHera, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatTowerOfHera(have),
+                        CanDefeatTowerOfHera
                 },
                 new Location
                 {
@@ -2392,8 +2353,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.SwampPalace, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatSwampPalace(have),
+                        CanDefeatSwampPalace
                 },
                 new Location
                 {
@@ -2406,8 +2366,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.DarkPalace, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatDarkPalace(have),
+                        CanDefeatDarkPalace
                 },
                 new Location
                 {
@@ -2420,8 +2379,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.MiseryMire, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatMiseryMire(have),
+                        CanDefeatMiseryMire
                 },
                 new Location
                 {
@@ -2434,8 +2392,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.SkullWoods, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatSkullWoods(have),
+                        CanDefeatSkullWoods
                 },
                 new Location
                 {
@@ -2448,8 +2405,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.IcePalace, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatIcePalace(have),
+                        CanDefeatIcePalace
                 },
                 new Location
                 {
@@ -2462,8 +2418,7 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.ThievesTown, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatThievesTown(have),
+                        CanDefeatThievesTown
                 },
                 new Location
                 {
@@ -2476,18 +2431,17 @@ namespace AlttpRandomizer.Rom
                             WriteCrystal(rom, Region.TurtleRock, itemType);
                         },
                     CanAccess =
-                        have =>
-                        CanDefeatTurtleRock(have),
+                        CanDefeatTurtleRock
                 },
                 new Location
                 {
                     Name = "Bottle Item - Waterfall",
-                    Address = 0x348FF,
+                    Address = 0x348FF
                 },
                 new Location
                 {
                     Name = "Bottle Item - Pyramid",
-                    Address = 0x3493B,
+                    Address = 0x3493B
                 },
                 new Location
                 {
@@ -2552,9 +2506,9 @@ namespace AlttpRandomizer.Rom
                     WriteItemCheck =
                         (rom, item) =>
                         {
-                            byte itemType = (byte)((InventoryItem)item).Type;
+                            var itemType = (byte)((InventoryItem)item).Type;
                             rom.WriteBytes(0x44435, itemType);
-                        },
+                        }
                 },
                 new Location
                 {
@@ -2570,8 +2524,8 @@ namespace AlttpRandomizer.Rom
                 new Location
                 {
                     Name = "Sword - Fairy",
-                    Address = 0x180028,
-                },
+                    Address = 0x180028
+                }
             };
         }
 
@@ -2623,7 +2577,7 @@ namespace AlttpRandomizer.Rom
 
         private bool CanGetGoldSword(List<InventoryItemType> have)
         {
-            Dictionary<string, Func<List<InventoryItemType>, bool>> dungeons = new Dictionary<string, Func<List<InventoryItemType>, bool>>
+            var dungeons = new Dictionary<string, Func<List<InventoryItemType>, bool>>
             {
                 { "Crystal - Dark Palace", CanDefeatDarkPalace },
                 { "Crystal - Swamp Palace", CanDefeatSwampPalace },
@@ -2631,7 +2585,7 @@ namespace AlttpRandomizer.Rom
                 { "Crystal - Thieves' Town", CanDefeatThievesTown },
                 { "Crystal - Ice Palace", CanDefeatIcePalace },
                 { "Crystal - Misery Mire", CanDefeatMiseryMire },
-                { "Crystal - Turtle Rock", CanDefeatTurtleRock },
+                { "Crystal - Turtle Rock", CanDefeatTurtleRock }
             };
 
             var canGetCrystals5_6 = dungeons.Keys.Where(key => CrystalAtLocation(key, CrystalItemType.Crystal5) || CrystalAtLocation(key, CrystalItemType.Crystal6)).All(key => dungeons[key](have));
@@ -2789,7 +2743,7 @@ namespace AlttpRandomizer.Rom
                                     InventoryItemType.Hookshot,
                                     InventoryItemType.IceRod,
                                     InventoryItemType.MagicMirror,
-                                    InventoryItemType.MoonPearl,
+                                    InventoryItemType.MoonPearl
                                 };
 
             return requiredItems.Contains(item);
@@ -2949,7 +2903,7 @@ namespace AlttpRandomizer.Rom
                 InventoryItemType.ThreeHundredRupees,
                 InventoryItemType.ThreeHundredRupees,
                 InventoryItemType.ThreeHundredRupees,
-                InventoryItemType.ThreeHundredRupees,
+                InventoryItemType.ThreeHundredRupees
             };
 
             var bottleTypes = new List<InventoryItemType>
@@ -2960,7 +2914,7 @@ namespace AlttpRandomizer.Rom
                     InventoryItemType.BottleWithBluePotion,
                     InventoryItemType.BottleWithBee,
                     InventoryItemType.BottleWithFairy,
-                    InventoryItemType.BottleWithGoldBee,
+                    InventoryItemType.BottleWithGoldBee
                 };
 
             //Bottles
@@ -2972,7 +2926,7 @@ namespace AlttpRandomizer.Rom
             var magicBatItemTypes = new List<InventoryItemType>
                 {
                     InventoryItemType.HalfMagic,
-                    InventoryItemType.QuarterMagic,
+                    InventoryItemType.QuarterMagic
                 };
 
             retVal.Add(magicBatItemTypes[random.Next(magicBatItemTypes.Count)]);
@@ -2985,7 +2939,7 @@ namespace AlttpRandomizer.Rom
             var coreLateGameItems = new List<InventoryItemType>
                 {
                     InventoryItemType.RedMail,
-                    InventoryItemType.MirrorShield,
+                    InventoryItemType.MirrorShield
                 };
 
             lateGameItems = new List<InventoryItemType>();

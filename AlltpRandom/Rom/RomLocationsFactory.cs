@@ -3,7 +3,7 @@ using AlttpRandomizer.Random;
 
 namespace AlttpRandomizer.Rom
 {
-    public class RomLocationsFactory
+    public static class RomLocationsFactory
     {
         public static IRomLocations GetRomLocations(RandomizerDifficulty difficulty)
         {
@@ -14,7 +14,7 @@ namespace AlttpRandomizer.Rom
                 case RandomizerDifficulty.Glitched:
                     return new RomLocationsGlitched();
                 default:
-                    throw new ArgumentException("Difficulty must be set.", "difficulty");
+                    throw new ArgumentException("Difficulty must be set.", nameof(difficulty));
             }
         }
     }

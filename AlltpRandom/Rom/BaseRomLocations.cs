@@ -212,7 +212,7 @@ namespace AlttpRandomizer.Rom
                                  {
                                      InventoryItemType.Bombos,
                                      InventoryItemType.Ether,
-                                     InventoryItemType.Quake,
+                                     InventoryItemType.Quake
                                  };
 
             var mireMedallion = SpecialLocation("Required Medallion - Misery Mire");
@@ -230,7 +230,7 @@ namespace AlttpRandomizer.Rom
                                   InventoryItemType.BottleWithBluePotion,
                                   InventoryItemType.BottleWithBee,
                                   InventoryItemType.BottleWithFairy,
-                                  InventoryItemType.BottleWithGoldBee,
+                                  InventoryItemType.BottleWithGoldBee
                               };
 
             var waterfallItem = SpecialLocation("Bottle Item - Waterfall");
@@ -279,7 +279,7 @@ namespace AlttpRandomizer.Rom
                     { Region.ThievesTown, 0xAC },
                     { Region.IcePalace, 0xDE },
                     { Region.MiseryMire, 0x90 },
-                    { Region.TurtleRock, 0xA4 },
+                    { Region.TurtleRock, 0xA4 }
                 };
 
             return regionAddresses[region];
@@ -295,7 +295,7 @@ namespace AlttpRandomizer.Rom
                     { CrystalItemType.Crystal4, 0x1086A },
                     { CrystalItemType.Crystal5, 0x10866 },
                     { CrystalItemType.Crystal6, 0x10864 },
-                    { CrystalItemType.Crystal7, 0x10868 },
+                    { CrystalItemType.Crystal7, 0x10868 }
                 };
 
             return crystalAddresses[itemType];
@@ -314,7 +314,7 @@ namespace AlttpRandomizer.Rom
                     { Region.ThievesTown, new List<int> { 0x545D4, 0x120A6, 0x5452A, 0x18005B, 0xC707 } },
                     { Region.IcePalace, new List<int> { 0x545D6, 0x120A4, 0x54528, 0x180059, 0xC705 } },
                     { Region.MiseryMire, new List<int> { 0x545D5, 0x120A2, 0x54529, 0x180057, 0xC703 } },
-                    { Region.TurtleRock, new List<int> { 0x545D3, 0x120A7, 0x5452B, 0x18005C, 0xC708 } },
+                    { Region.TurtleRock, new List<int> { 0x545D3, 0x120A7, 0x5452B, 0x18005C, 0xC708 } }
                 };
 
             return regionAddresses[region];
@@ -326,7 +326,7 @@ namespace AlttpRandomizer.Rom
                 {
                     { PendantItemType.GreenPendant, new List<byte> { 0x04, 0x04, 0x38, 0x00, 0x01 } },
                     { PendantItemType.RedPendant, new List<byte> { 0x01, 0x01, 0x32, 0x00, 0x03 } },
-                    { PendantItemType.BluePendant, new List<byte> { 0x02, 0x02, 0x34, 0x00, 0x02 } },
+                    { PendantItemType.BluePendant, new List<byte> { 0x02, 0x02, 0x34, 0x00, 0x02 } }
                 };
 
             return pendantValues[itemType];
@@ -342,7 +342,7 @@ namespace AlttpRandomizer.Rom
                     { CrystalItemType.Crystal4, new List<byte> { 0x20, 0x20, 0x6D, 0x40, 0x06 } },
                     { CrystalItemType.Crystal5, new List<byte> { 0x04, 0x04, 0x6E, 0x40, 0x06 } },
                     { CrystalItemType.Crystal6, new List<byte> { 0x01, 0x01, 0x6F, 0x40, 0x06 } },
-                    { CrystalItemType.Crystal7, new List<byte> { 0x08, 0x08, 0x7C, 0x40, 0x06 } },
+                    { CrystalItemType.Crystal7, new List<byte> { 0x08, 0x08, 0x7C, 0x40, 0x06 } }
                 };
 
             return crystalValues[itemType];

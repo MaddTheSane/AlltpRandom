@@ -368,7 +368,7 @@ namespace AlttpRandomizer.Rom
         public static byte[] GetCreditsName(InventoryItemType item)
         {
             const int maxLength = 20;
-            StringBuilder retVal = new StringBuilder(maxLength, maxLength);
+            var retVal = new StringBuilder(maxLength, maxLength);
 
             switch (item)
             {
@@ -512,7 +512,7 @@ namespace AlttpRandomizer.Rom
 
         private static byte[] ConvertToCreditEncoding(string input)
         {
-            byte[] inputBytes = Encoding.ASCII.GetBytes(input.ToLower());
+            var inputBytes = Encoding.ASCII.GetBytes(input.ToLower());
 
             // 'a' in ASCII = 0x61
             // 'a' in z3credits = 0x1A (among others, but this for the small font)
