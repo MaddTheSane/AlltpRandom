@@ -84,7 +84,7 @@ namespace AlltpRandom
                 SramTrace = sramTraceCheck.State == NSCellStateValue.On,
                 ShowComplexity = complexityCheck.State == NSCellStateValue.On,
                 Difficulty = GetRandomizerDifficulty(),
-                HeartBeepSpeed = GetHeartBeepSpeed(),
+                HeartBeepSpeed = GetHeartBeepSpeed()
             };
         }
 
@@ -110,7 +110,8 @@ namespace AlltpRandom
                     var alert = new NSAlert
                     {
                         MessageText = "Select Difficulty",
-                        InformativeText = "Please select a difficulty."
+                        InformativeText = "Please select a difficulty.",
+                        AlertStyle = NSAlertStyle.Warning
                     };
 
                     alert.BeginSheet(this.View.Window);
@@ -122,7 +123,13 @@ namespace AlltpRandom
         {
             if (!int.TryParse(seedField.StringValue, out int parsedSeed))
             {
-                //MessageBox.Show("Seed must be numeric or blank.", "Seed Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                var alert = new NSAlert
+                {
+                    MessageText = "Seed Error",
+                    InformativeText = "Seed must be numeric or blank.",
+                    AlertStyle = NSAlertStyle.Warning
+                };
+                alert.BeginSheet(this.View.Window);
                 WriteOutput("Seed must be numeric or blank.", true);
             }
             else
@@ -175,7 +182,8 @@ namespace AlltpRandom
 
         private void WriteOutput(NSAttributedString text)
         {
-            NSOperationQueue.MainQueue.AddOperation(() => { 
+            NSOperationQueue.MainQueue.AddOperation(() =>
+            {
                 outputText.TextStorage.BeginEditing();
                 outputText.TextStorage.Append(text);
                 outputText.TextStorage.Append(new NSAttributedString("\n"));
@@ -221,6 +229,11 @@ namespace AlltpRandom
             Settings.Default.HeartBeepSpeedRaw = heartBeepPopUp.SelectedTag;
             Settings.Default.RandomizerDifficultyRaw = difficultyPopUp.SelectedTag;
             var dirStr = directoryField.StringValue;
+            var dirURL = new NSUrl(dirStr, true);
+            if (dirURL.CheckPromisedItemIsReachable(out NSError unusedErr))
+            {
+                Settings.Default.ParentDirectory = dirURL;
+            }
         }
 
         #endregion
@@ -269,7 +282,7 @@ namespace AlltpRandom
             {
                 case RandomizerDifficulty.Casual:
                     bulkGenerateButton.Enabled = true;
-                    if (seedField.StringValue.ToUpper().StartsWith("G"))
+                    if (seedField.StringValue.ToUpper().StartsWith("G", StringComparison.Ordinal))
                     {
                         seedField.StringValue = seedField.StringValue.ToUpper().Replace('G', 'C');
                     }
@@ -280,7 +293,7 @@ namespace AlltpRandom
                     break;
                 case RandomizerDifficulty.Glitched:
                     bulkGenerateButton.Enabled = true;
-                    if (seedField.StringValue.ToUpper().StartsWith("C"))
+                    if (seedField.StringValue.ToUpper().StartsWith("C", StringComparison.Ordinal))
                     {
                         seedField.StringValue = seedField.StringValue.ToUpper().Replace('C', 'G');
                     }
@@ -304,10 +317,12 @@ namespace AlltpRandom
                 NSAlert alert;
                 if (!filename.Contains("<seed>"))
                 {
-                    alert = new NSAlert();
-                    alert.MessageText = "Filename Error";
-                    alert.InformativeText = "Bulk create requires \"<seed>\" be in the file name.";
-                    alert.AlertStyle = NSAlertStyle.Critical;
+                    alert = new NSAlert
+                    {
+                        MessageText = "Filename Error",
+                        InformativeText = "Bulk create requires \"<seed>\" be in the file name.",
+                        AlertStyle = NSAlertStyle.Critical
+                    };
                     alert.BeginSheet(this.View.Window);
                     WriteOutput("Bulk create requires \"<seed>\" be in the file name.", true);
                 }
@@ -334,7 +349,7 @@ namespace AlltpRandom
 
                     for (int seedNum = 0; seedNum < bulkStepper.IntValue; seedNum++)
                     {
-                        int parsedSeed = new SeedRandom().Next(10000000);
+                        var parsedSeed = new SeedRandom().Next(10000000);
                         var romLocations = RomLocationsFactory.GetRomLocations(difficulty);
                         RandomizerLog log = null;
 
@@ -354,7 +369,7 @@ namespace AlltpRandom
                         try
                         {
 
-                            int complexity = CreateRom(romLocations, log, GetOptions(), parsedSeed);
+                            var complexity = CreateRom(romLocations, log, GetOptions(), parsedSeed);
 
                             outputString = new StringBuilder();
                             outputString.AppendFormat("Completed Seed: ");
@@ -403,9 +418,12 @@ namespace AlltpRandom
                     }
 
                     WriteOutput(finishedString);
-                    alert = new NSAlert();
-                    alert.MessageText = "Bulk Creation Complete";
-                    alert.InformativeText = finishedString.ToString();
+                    alert = new NSAlert
+                    {
+                        MessageText = "Bulk Creation Complete",
+                        InformativeText = finishedString.ToString(),
+                        AlertStyle = failCount > 0 ? NSAlertStyle.Informational : NSAlertStyle.Warning
+                    };
                     alert.BeginSheet(this.View.Window);
                 }
 
@@ -437,10 +455,12 @@ namespace AlltpRandom
 
                 if (!int.TryParse(seedField.StringValue, out int parsedSeed))
                 {
-                    var alert = new NSAlert();
-                    alert.MessageText = "Seed Error";
-                    alert.InformativeText = "Seed must be numeric or blank.";
-                    alert.AlertStyle = NSAlertStyle.Critical;
+                    var alert = new NSAlert
+                    {
+                        MessageText = "Seed Error",
+                        InformativeText = "Seed must be numeric or blank.",
+                        AlertStyle = NSAlertStyle.Warning
+                    };
 
                     alert.BeginSheet(this.View.Window);
 
@@ -501,10 +521,12 @@ namespace AlltpRandom
                 var alert = new NSAlert
                 {
                     MessageText = "No Seed",
-                    InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to generate a spoiler for that seed."
+                    InformativeText = "There is no seed specified in the seed field.\n\nThis is needed to generate a spoiler for that seed.",
+                    AlertStyle = NSAlertStyle.Warning
                 };
 
                 alert.BeginSheet(this.View.Window);
+                WriteOutput("No seed specified.", true);
                 return;
             }
             ClearOutput();
