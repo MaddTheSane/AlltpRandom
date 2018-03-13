@@ -264,7 +264,22 @@ namespace AlltpRandom
         [Export("changeFolder:")]
         void ChangeFolder(Foundation.NSObject sender)
         {
-            var panel = new NSOpenPanel();
+            var panel = new NSOpenPanel
+            {
+                CanChooseDirectories = true,
+                CanCreateDirectories = true,
+                CanChooseFiles = false,
+                DirectoryUrl = new NSUrl(directoryField.StringValue, true)
+            };
+
+            panel.BeginSheet(this.View.Window, (nint hi) =>
+            {
+                if (hi == (int)NSModalResponse.OK)
+                {
+                    var newURL = panel.Url;
+                    directoryField.StringValue = newURL.Path;
+                }
+            });
         }
 
         [Export("complexityToggle:")]
