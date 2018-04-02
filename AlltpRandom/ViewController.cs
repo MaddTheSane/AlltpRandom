@@ -258,7 +258,9 @@ namespace AlltpRandom
 
         private void ClearOutput()
         {
+            outputText.TextStorage.BeginEditing();
             outputText.TextStorage.SetString(new NSAttributedString());
+            outputText.TextStorage.EndEditing();
         }
 
         public override void ViewWillDisappear()
