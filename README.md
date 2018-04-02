@@ -1,6 +1,6 @@
 # The Legend of Zelda: A Link to the Past Randomizer for Mac
 
-This is a Mac port of [The Legend of Zelda: A Link to the Past Randomizer](https://github.com/Dessyreqt/alttprandomizer) by [Dessyreqt](https://github.com/Dessyreqt) to the Mac.
+This is a Mac port of [The Legend of Zelda: A Link to the Past Randomizer](https://github.com/Dessyreqt/alttprandomizer) by [Dessyreqt](https://github.com/Dessyreqt) using *Xamarin.Mac* and Cocoa.
 
 ## The Problem
 
