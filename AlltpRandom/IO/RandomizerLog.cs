@@ -110,7 +110,7 @@ namespace AlttpRandomizer.IO
 
         private void AppendMagicUpgrade(StringBuilder writer)
         {
-            foreach (var Location in generatedItems.Where(x => x.Item.HexValue != 0xFF && GetItemName(x.Item).StartsWith("1/")))
+            foreach (var Location in generatedItems.Where(x => x.Item.HexValue != 0xFF && GetItemName(x.Item).StartsWith("1/", StringComparison.Ordinal)))
             {
                 writer.AppendLine(string.Format("{0}{1}", "Magic Upgrade".PadRight(90, '.'), GetItemName(Location.Item)));
             }

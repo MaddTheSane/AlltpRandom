@@ -84,7 +84,7 @@ namespace AlttpRandomizer.Random
 
         private double GetSampleForLargeRange()
         {
-            int num = InternalSample();
+            var num = InternalSample();
             bool flag = InternalSample() % 2 == 0;
             if (flag)
             {
@@ -99,7 +99,7 @@ namespace AlttpRandomizer.Random
         {
             if (minValue > maxValue)
             {
-                throw new ArgumentOutOfRangeException("minValue", "minValue must be less than maxValue.");
+                throw new ArgumentOutOfRangeException(nameof(minValue), "minValue must be less than maxValue.");
             }
             long num = maxValue - (long)minValue;
             if (num <= 2147483647L)
@@ -113,7 +113,7 @@ namespace AlttpRandomizer.Random
         {
             if (maxValue < 0)
             {
-                throw new ArgumentOutOfRangeException("maxValue", "maxValue must be positive.");
+                throw new ArgumentOutOfRangeException(nameof(maxValue), "maxValue must be positive.");
             }
             return (int)(Sample() * maxValue);
         }
@@ -127,7 +127,7 @@ namespace AlttpRandomizer.Random
         {
             if (buffer == null)
             {
-                throw new ArgumentNullException("buffer");
+                throw new ArgumentNullException(nameof(buffer));
             }
             for (int i = 0; i < buffer.Length; i++)
             {

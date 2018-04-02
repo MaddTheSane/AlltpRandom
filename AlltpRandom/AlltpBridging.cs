@@ -8,7 +8,7 @@ namespace AlttpRandomizer.Properties
     internal static class Resources
     {
         /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
+        ///   Looks up a resource of type System.Byte[].
         /// </summary>
         internal static byte[] RomImage
         {
@@ -24,16 +24,9 @@ namespace AlttpRandomizer.Properties
 
     internal class Settings
     {
-
         private static Settings defaultInstance = new Settings();
 
-        public static Settings Default
-        {
-            get
-            {
-                return defaultInstance;
-            }
-        }
+        public static Settings Default => defaultInstance;
 
 
         public string OutputFile
@@ -42,7 +35,7 @@ namespace AlttpRandomizer.Properties
             set => NSUserDefaults.StandardUserDefaults.SetString(value, PreferenceNames.OutputFile);
         }
 
-        public AlttpRandomizer.Random.RandomizerDifficulty RandomizerDifficulty
+        public RandomizerDifficulty RandomizerDifficulty
         {
             get
             {
@@ -52,10 +45,7 @@ namespace AlttpRandomizer.Properties
                 }
                 return (RandomizerDifficulty)Enum.ToObject(typeof(RandomizerDifficulty), RandomizerDifficultyRaw);
             }
-            set
-            {
-                RandomizerDifficultyRaw = (int)value;
-            }
+            set => RandomizerDifficultyRaw = (int)value;
         }
 
         public nint RandomizerDifficultyRaw
@@ -79,16 +69,15 @@ namespace AlttpRandomizer.Properties
 
         public AlttpRandomizer.Random.HeartBeepSpeed HeartBeepSpeed
         {
-            get {
+            get
+            {
                 if (!Enum.IsDefined(typeof(HeartBeepSpeed), HeartBeepSpeedRaw))
                 {
                     NSUserDefaults.StandardUserDefaults.RemoveObject(PreferenceNames.HeartBeepSpeed);
                 }
                 return (HeartBeepSpeed)Enum.ToObject(typeof(HeartBeepSpeed), HeartBeepSpeedRaw);
             }
-            set {
-                HeartBeepSpeedRaw = (int)value;
-            }
+            set => HeartBeepSpeedRaw = (int)value;
         }
 
         public nint HeartBeepSpeedRaw
