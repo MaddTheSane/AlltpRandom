@@ -5,7 +5,7 @@ using AlltpRandom;
 
 namespace AlttpRandomizer.Properties
 {
-    internal static class Resources
+    static class Resources
     {
         /// <summary>
         ///   Looks up a resource of type System.Byte[].
@@ -24,7 +24,7 @@ namespace AlttpRandomizer.Properties
 
     internal class Settings
     {
-        private static Settings defaultInstance = new Settings();
+        static Settings defaultInstance = new Settings();
 
         public static Settings Default => defaultInstance;
 
@@ -67,7 +67,7 @@ namespace AlttpRandomizer.Properties
             set => NSUserDefaults.StandardUserDefaults.SetBool(value, PreferenceNames.SramTrace);
         }
 
-        public AlttpRandomizer.Random.HeartBeepSpeed HeartBeepSpeed
+        public HeartBeepSpeed HeartBeepSpeed
         {
             get
             {
@@ -98,7 +98,8 @@ namespace AlttpRandomizer.Properties
             set => NSUserDefaults.StandardUserDefaults.SetBool(value, PreferenceNames.ShowComplexity);
         }
 
-        public NSUrl ParentDirectory {
+        public NSUrl ParentDirectory
+        {
             get => NSUserDefaults.StandardUserDefaults.URLForKey(PreferenceNames.ParentDirectory);
             set => NSUserDefaults.StandardUserDefaults.SetURL(value, PreferenceNames.ParentDirectory);
         }
@@ -133,7 +134,7 @@ namespace AlltpRandom
         }
     }
 
-    static class PreferenceNames 
+    static class PreferenceNames
     {
         internal const string OutputFile = "OutputFile";
         internal const string RandomizerDifficulty = "RandomizerDifficulty";
