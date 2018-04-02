@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
         <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
@@ -749,9 +749,6 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
-                                            <connections>
-                                                <action selector="heartBeepChanged:" target="XfG-lQ-9wD" id="F8V-hg-hHU"/>
-                                            </connections>
                                         </popUpButton>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="C1F-R3-5cW">
                                             <rect key="frame" x="18" y="192" width="119" height="17"/>
@@ -775,9 +772,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="sramCheckToggle:" target="XfG-lQ-9wD" id="dYa-Qw-gay"/>
-                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0gP-hW-QDt">
                                             <rect key="frame" x="18" y="114" width="127" height="18"/>
@@ -785,9 +779,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="complexityToggle:" target="XfG-lQ-9wD" id="WbG-Li-f0S"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -1027,9 +1018,6 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <action selector="spoilerLogToggle:" target="XfG-lQ-9wD" id="2zL-F2-K10"/>
-                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>

@@ -291,12 +291,6 @@ namespace AlltpRandom
             });
         }
 
-        [Export("complexityToggle:")]
-        void ComplexityToggle(Foundation.NSObject sender)
-        {
-
-        }
-
         [Export("seedTextChanged:")]
         void SeedTextChanged(Foundation.NSObject sender)
         {
@@ -580,24 +574,6 @@ namespace AlltpRandom
             ClearOutput();
             var difficulty = GetRandomizerDifficulty();
             CreateSpoilerLog(difficulty);
-
-        }
-
-        [Export("heartBeepChanged:")]
-        void HeartBeepChanged(Foundation.NSObject sender)
-        {
-
-        }
-
-        [Export("spoilerLogToggle:")]
-        void SpoilerLogToggle(Foundation.NSObject sender)
-        {
-
-        }
-
-        [Export("sramCheckToggle:")]
-        void SramCheckToggle(Foundation.NSObject sender)
-        {
 
         }
 

@@ -60,9 +60,6 @@ namespace AlltpRandom
 		[Action ("changeFolder:")]
 		partial void changeFolder (Foundation.NSObject sender);
 
-		[Action ("complexityToggle:")]
-		partial void complexityToggle (Foundation.NSObject sender);
-
 		[Action ("difficultyChanged:")]
 		partial void difficultyChanged (Foundation.NSObject sender);
 
@@ -75,17 +72,8 @@ namespace AlltpRandom
 		[Action ("getSpoiler:")]
 		partial void getSpoiler (Foundation.NSObject sender);
 
-		[Action ("heartBeepChanged:")]
-		partial void heartBeepChanged (Foundation.NSObject sender);
-
 		[Action ("seedTextChanged:")]
 		partial void seedTextChanged (Foundation.NSObject sender);
-
-		[Action ("spoilerLogToggle:")]
-		partial void spoilerLogToggle (Foundation.NSObject sender);
-
-		[Action ("sramCheckToggle:")]
-		partial void sramCheckToggle (Foundation.NSObject sender);
 		
 		void ReleaseDesignerOutlets ()
 		{
