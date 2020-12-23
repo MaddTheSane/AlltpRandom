@@ -25,9 +25,8 @@ namespace AlltpRandom
             {
                 return (HeartBeepSpeed)beep;
             }
-            HeartBeepSpeed retVal;
 
-            if (Enum.TryParse(heartBeepPopUp.SelectedItem.Title, true, out retVal))
+            if (Enum.TryParse(heartBeepPopUp.SelectedItem.Title, true, out HeartBeepSpeed retVal))
             {
                 return retVal;
             }
@@ -66,7 +65,7 @@ namespace AlltpRandom
             return difficulty;
         }
 
-        private string filename
+        private string Filename
         {
             get
             {
@@ -80,7 +79,7 @@ namespace AlltpRandom
         {
             return new RandomizerOptions
             {
-                Filename = filename,
+                Filename = Filename,
                 SramTrace = sramTraceCheck.State == NSCellStateValue.On,
                 ShowComplexity = complexityCheck.State == NSCellStateValue.On,
                 Difficulty = GetRandomizerDifficulty(),
@@ -273,13 +272,11 @@ namespace AlltpRandom
         [Export("changeFolder:")]
         void ChangeFolder(Foundation.NSObject sender)
         {
-            var panel = new NSOpenPanel
-            {
-                CanChooseDirectories = true,
-                CanCreateDirectories = true,
-                CanChooseFiles = false,
-                DirectoryUrl = new NSUrl(directoryField.StringValue, true)
-            };
+            var panel = NSOpenPanel.OpenPanel;
+            panel.CanChooseDirectories = true;
+            panel.CanCreateDirectories = true;
+            panel.CanChooseFiles = false;
+            panel.DirectoryUrl = new NSUrl(directoryField.StringValue, true);
 
             panel.BeginSheet(this.View.Window, (nint hi) =>
             {
@@ -358,7 +355,7 @@ namespace AlltpRandom
         void GenerateMultipleROMs(Foundation.NSObject sender)
         {
             NSAlert alert;
-            if (!filename.Contains("<seed>"))
+            if (!Filename.Contains("<seed>"))
             {
                 alert = new NSAlert
                 {

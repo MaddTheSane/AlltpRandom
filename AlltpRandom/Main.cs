@@ -18,7 +18,7 @@ namespace AlltpRandom
             dict.SetValueForKey(new NSNumber((int)HeartBeepSpeed.Normal), new NSString(PreferenceNames.HeartBeepSpeed));
             dict.SetValueForKey(new NSNumber(5), new NSString(PreferenceNames.BulkCreateCount));
             dict.SetValueForKey(new NSNumber(true), new NSString(PreferenceNames.ShowComplexity));
-            var docURL = NSFileManager.DefaultManager.GetUrl(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, null, false, out NSError unused);
+            var docURL = NSFileManager.DefaultManager.GetUrl(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomain.User, null, false, out _);
             dict.SetValueForKey(docURL, new NSString(PreferenceNames.ParentDirectory));
             NSUserDefaults.StandardUserDefaults.RegisterDefaults(dict);
             dict = null;

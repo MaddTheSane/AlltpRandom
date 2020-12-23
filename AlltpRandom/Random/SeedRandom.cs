@@ -84,7 +84,7 @@ namespace AlttpRandomizer.Random
 
         private double GetSampleForLargeRange()
         {
-            var num = InternalSample();
+            int num = InternalSample();
             bool flag = InternalSample() % 2 == 0;
             if (flag)
             {

@@ -15,8 +15,8 @@ namespace AlttpRandomizer.Properties
             get
             {
                 var romImage = NSBundle.MainBundle.GetUrlForResource("alttp", "sfc");
-                var romData = NSData.FromUrl(romImage);
-                var romBytes = romData.ToArray();
+                NSData romData = NSData.FromUrl(romImage);
+                byte[] romBytes = romData.ToArray();
                 return romBytes;
             }
         }
@@ -24,9 +24,7 @@ namespace AlttpRandomizer.Properties
 
     internal class Settings
     {
-        static Settings defaultInstance = new Settings();
-
-        public static Settings Default => defaultInstance;
+        public static Settings Default { get; } = new Settings();
 
 
         public string OutputFile
