@@ -9,7 +9,7 @@ TestResults/
 
 # globs
 Makefile.in
-*.DS_Store
+.DS_Store
 *.sln.cache
 *.suo
 *.cache
