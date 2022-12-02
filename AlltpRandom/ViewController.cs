@@ -6,7 +6,6 @@ using System.Text;
 using AppKit;
 using Foundation;
 using AlttpRandomizer.IO;
-using AlttpRandomizer.Net;
 using AlttpRandomizer.Properties;
 using AlttpRandomizer.Random;
 using AlttpRandomizer.Rom;
@@ -102,7 +101,7 @@ namespace AlltpRandom
                     break;
 
                 case RandomizerDifficulty.None:
-                    seedField.StringValue = string.Format("NORAND");
+                    seedField.StringValue = "NORAND";
                     break;
 
                 default:
@@ -229,7 +228,7 @@ namespace AlltpRandom
             Settings.Default.RandomizerDifficultyRaw = difficultyPopUp.SelectedTag;
             var dirStr = directoryField.StringValue;
             var dirURL = new NSUrl(dirStr, true);
-            if (dirURL.CheckPromisedItemIsReachable(out NSError unusedErr))
+            if (dirURL.CheckPromisedItemIsReachable(out _))
             {
                 Settings.Default.ParentDirectory = dirURL;
             }
@@ -270,7 +269,7 @@ namespace AlltpRandom
 
         #region IBActions
         [Export("changeFolder:")]
-        void ChangeFolder(Foundation.NSObject sender)
+        public void ChangeFolder(NSObject sender)
         {
             var panel = NSOpenPanel.OpenPanel;
             panel.CanChooseDirectories = true;
@@ -289,7 +288,7 @@ namespace AlltpRandom
         }
 
         [Export("seedTextChanged:")]
-        void SeedTextChanged(Foundation.NSObject sender)
+        public void SeedTextChanged(NSObject sender)
         {
             if (seedField.StringValue.ToUpper().StartsWith("C", StringComparison.Ordinal))
             {
@@ -316,7 +315,7 @@ namespace AlltpRandom
 
 
         [Export("difficultyChanged:")]
-        void DifficultyChanged(Foundation.NSObject sender)
+        public void DifficultyChanged(Foundation.NSObject sender)
         {
             var tag = difficultyPopUp.SelectedTag;
             var difficulty = AlltpHelpers.ToDifficulty(tag) ?? RandomizerDifficulty.Casual;
@@ -352,7 +351,7 @@ namespace AlltpRandom
         }
 
         [Export("generateMultipleROMs:")]
-        void GenerateMultipleROMs(Foundation.NSObject sender)
+        public void GenerateMultipleROMs(NSObject sender)
         {
             NSAlert alert;
             if (!Filename.Contains("<seed>"))
@@ -471,7 +470,7 @@ namespace AlltpRandom
         }
 
         [Export("generateRandomizedROM:")]
-        void GenerateRandomizedROM(Foundation.NSObject sender)
+        public void GenerateRandomizedROM(NSObject sender)
         {
             if (string.IsNullOrWhiteSpace(seedField.StringValue))
             {
@@ -552,7 +551,7 @@ namespace AlltpRandom
         }
 
         [Export("getSpoiler:")]
-        void GetSpoiler(NSObject sender)
+        public void GetSpoiler(NSObject sender)
         {
             var txt = seedField.StringValue;
             if (txt.Length == 0)
@@ -575,7 +574,7 @@ namespace AlltpRandom
         }
 
         [Export("bulkChanged:")]
-        void BulkChanged(Foundation.NSObject sender)
+        public void BulkChanged(Foundation.NSObject sender)
         {
 
         }

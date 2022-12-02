@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19455"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1026,6 +1026,7 @@
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="top" secondItem="239-hM-4Rv" secondAttribute="bottom" constant="20" symbolic="YES" id="Bck-l9-pV2"/>
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="firstBaseline" secondItem="xxt-5h-Ecr" secondAttribute="firstBaseline" id="Bfo-qm-qYN"/>
                                         <constraint firstItem="FYy-5h-xdg" firstAttribute="leading" secondItem="O7s-Qn-RbH" secondAttribute="trailing" constant="8" symbolic="YES" id="DIb-Q8-RMy"/>
+                                        <constraint firstItem="O7s-Qn-RbH" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="oCk-2j-pwx" secondAttribute="trailing" constant="8" symbolic="YES" id="JPe-t4-1LQ"/>
                                         <constraint firstItem="oCk-2j-pwx" firstAttribute="leading" secondItem="uQg-gq-Sjs" secondAttribute="leading" constant="20" symbolic="YES" id="NGg-02-xso"/>
                                         <constraint firstItem="55Z-Sb-Lud" firstAttribute="leading" secondItem="O7s-Qn-RbH" secondAttribute="leading" id="Qa4-M0-jkH"/>
                                         <constraint firstItem="f0M-F2-e81" firstAttribute="baseline" secondItem="O7s-Qn-RbH" secondAttribute="baseline" id="Ta1-vl-YQM"/>

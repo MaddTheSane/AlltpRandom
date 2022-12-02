@@ -14,8 +14,8 @@ namespace AlttpRandomizer.Properties
         {
             get
             {
-                var romImage = NSBundle.MainBundle.GetUrlForResource("alttp", "sfc");
-                NSData romData = NSData.FromUrl(romImage);
+                using NSUrl romImage = NSBundle.MainBundle.GetUrlForResource("alttp", "sfc");
+                using NSData romData = NSData.FromUrl(romImage);
                 byte[] romBytes = romData.ToArray();
                 return romBytes;
             }
@@ -134,13 +134,22 @@ namespace AlltpRandom
 
     static class PreferenceNames
     {
-        internal const string OutputFile = "OutputFile";
-        internal const string RandomizerDifficulty = "RandomizerDifficulty";
-        internal const string CreateSpoilerLog = "CreateSpoilerLog";
-        internal const string SramTrace = "sramTrace";
-        internal const string HeartBeepSpeed = "HeartBeepSpeed";
-        internal const string BulkCreateCount = "BulkCreateCount";
-        internal const string ShowComplexity = "ShowComplexity";
-        internal const string ParentDirectory = "ParentDirectory";
+        private const string outputFile = "OutputFile";
+        private const string randomizerDifficulty = "RandomizerDifficulty";
+        private const string createSpoilerLog = "CreateSpoilerLog";
+        private const string sramTrace = "sramTrace";
+        private const string heartBeepSpeed = "HeartBeepSpeed";
+        private const string bulkCreateCount = "BulkCreateCount";
+        private const string showComplexity = "ShowComplexity";
+        private const string parentDirectory = "ParentDirectory";
+
+        internal static string OutputFile => outputFile;
+        internal static string RandomizerDifficulty => randomizerDifficulty;
+        internal static string CreateSpoilerLog => createSpoilerLog;
+        internal static string SramTrace => sramTrace;
+        internal static string HeartBeepSpeed => heartBeepSpeed;
+        internal static string BulkCreateCount => bulkCreateCount;
+        internal static string ShowComplexity => showComplexity;
+        internal static string ParentDirectory => parentDirectory;
     }
 }
